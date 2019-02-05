@@ -1,0 +1,64 @@
+package br.com.incentivados.model;
+
+import java.io.Serializable;
+import java.util.Date;
+
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
+import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+
+import br.com.incentivados.model.DocumentosEmpresa;
+import br.com.incentivados.model.Usuario;
+
+import lombok.Getter;
+import lombok.Setter;
+import lombok.ToString;
+
+@ToString
+@Setter
+@Getter
+@Entity
+@Table(name = "empresa")
+public class Empresa implements Serializable {
+
+	private static final long serialVersionUID = -8764619988704402910L;
+
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Long id;
+
+	@Temporal(TemporalType.TIMESTAMP)
+	@Column(name = "data_cadastro")
+	private Date dataCadastro;
+
+	@Column(columnDefinition = "TEXT")
+	private String sobre;
+
+	@Column(name = "nome_fantasia")
+	private String nomeFantasia;
+
+	@Column(name = "razao_social")
+	private String razaoSocial;
+
+	@Column(unique = true)
+	private String cnpj;
+
+	@JoinColumn(name = "usuario_id")
+	@ManyToOne(fetch = FetchType.EAGER)
+	private Usuario usuario;
+
+	@JoinColumn(name = "documentos_empresa_id")
+	@OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+	private DocumentosEmpresa documentosEmpresa;
+	
+}
