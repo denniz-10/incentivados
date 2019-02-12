@@ -41,9 +41,6 @@ public class Empresa implements Serializable {
 	@Column(name = "data_cadastro")
 	private Date dataCadastro;
 
-	@Column(columnDefinition = "TEXT")
-	private String sobre;
-
 	@Column(name = "nome_fantasia")
 	private String nomeFantasia;
 
