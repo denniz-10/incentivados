@@ -36,14 +36,16 @@
 
 <body data-spy="scroll" data-target="#primary-menu">
 
-    <div class="preloader">
-        <div class="sk-folding-cube">
-            <div class="sk-cube1 sk-cube"></div>
-            <div class="sk-cube2 sk-cube"></div>
-            <div class="sk-cube4 sk-cube"></div>
-            <div class="sk-cube3 sk-cube"></div>
-        </div>
-    </div>
+<%--PRELOADER Desativado--%>
+<%--    <div class="preloader">--%>
+<%--        <div class="sk-folding-cube">--%>
+<%--            <div class="sk-cube1 sk-cube"></div>--%>
+<%--            <div class="sk-cube2 sk-cube"></div>--%>
+<%--            <div class="sk-cube4 sk-cube"></div>--%>
+<%--            <div class="sk-cube3 sk-cube"></div>--%>
+<%--        </div>--%>
+<%--    </div>--%>
+
     <!--Mainmenu-area-->
     <div class="mainmenu-area" data-spy="affix" data-offset-top="100">
         <div class="container">
@@ -126,12 +128,12 @@
     </div>
 
     <!--Mainmenu-area/-->
-
     <div id="flow">
         <span class="flow-1"></span>
         <span class="flow-2"></span>
         <span class="flow-3"></span>
     </div>
+
     <!--Header-area-->
     <header class="header-area overlay full-height relative v-center" id="home-page">
         <div class="absolute anlge-bg"></div>
@@ -143,25 +145,6 @@
                         Aumente seu leque de opções e possibilidades cadastrando seu </p>
                     <a href="#" class="button white">Comece agora</a>
                 </div>
-                <!-- <div class="hidden-xs hidden-sm col-md-5 text-right">
-                    <div class="screen-box screen-slider">
-                        <div class="item">
-                            <img src="${path}/main/images/screen-1.jpg" alt="">
-                        </div>
-                        <div class="item">
-                            <img src="${path}/main/images/screen-2.jpg" alt="">
-                        </div>
-                        <div class="item">
-                            <img src="${path}/main/images/screen-3.jpg" alt="">
-                        </div>
-                        <div class="item">
-                            <img src="${path}/main/images/screen-4.jpg" alt="">
-                        </div>
-                        <div class="item">
-                            <img src="${path}/main/images/screen-5.jpg" alt="">
-                        </div>
-                    </div>
-                </div> -->
             </div>
         </div>
     </header>
