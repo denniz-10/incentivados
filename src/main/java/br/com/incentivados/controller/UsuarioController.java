@@ -51,7 +51,7 @@ public class UsuarioController {
 		try {
 			usuarioService.save(usuario);
 			model.addAttribute("usuarioCadastrado", true);
-			return "usuario/cadastro-efetuado-com-sucesso";
+			return "main/usuario/cadastro-efetuado-com-sucesso";
 		} catch (Exception e) {
 			System.out.println(e);
 			return "main/usuario/cadastro-sem-sucesso";

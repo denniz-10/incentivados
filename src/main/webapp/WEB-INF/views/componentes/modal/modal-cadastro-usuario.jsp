@@ -9,7 +9,7 @@
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
-      <form action="${path}/usuarios/cadastrar" method="post" acceptcharset="UTF-8">
+      <form action="${path}/usuarios/cadastro" method="post" acceptcharset="UTF-8">
         <div class="modal-body">        
           <fieldset>
           <legend>Informações Gerais:</legend>

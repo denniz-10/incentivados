@@ -18,7 +18,6 @@ import lombok.ToString;
 @Setter
 @Getter
 @Entity
-@Table(name = "documentos_pedido")
 public class DocumentosPedido {
 	
 	@Id

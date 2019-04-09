@@ -30,49 +30,49 @@
       <!-- Navbar -->
       <c:import url="/WEB-INF/views/componentes/navbar/navbar-admin.jsp" /> 
       <div class="content">
-        <div class="row">
+        <div class="row">          
           <div class="col-lg-4 col-md-4 col-sm-6">
-            <div class="row">
-              <div class="col-12">
-                <div class="card card-stats">
-                  <div class="card-body ">
-                    <div class="row">
-                      <div class="col-5 col-md-4">
-                        <div class="icon-big text-center icon-warning">
-                          <i class="fas fa-hand-holding-heart text-default"></i>
-                        </div>
-                      </div>
-                      <div class="col-7 col-md-8">
-                        <div class="numbers">
-                          <p class="card-category">Pedidos</p>
-                          <p class="card-title">
-                            <c:if test = "${empty qtdPedidos}">0</c:if>
-                            <c:if test = "${not empty qtdPedidos}">${qtdPedidos}</c:if>
-                          </p>
-                        </div>
-                      </div>
+            <div class="card card-stats">
+              <div class="card-body ">
+                <div class="row">
+                  <div class="col-5 col-md-4">
+                    <div class="icon-big text-center icon-warning">
+                      <i class="fas fa-hand-holding-heart text-default"></i>
                     </div>
                   </div>
-                  <div class="card-footer ">
-                    <hr>
+                  <div class="col-7 col-md-8">
+                    <div class="numbers">
+                      <p class="card-category">Pedidos</p>
+                      <p class="card-title">
+                        <c:if test = "${empty qtdPedidos}">0</c:if>
+                        <c:if test = "${not empty qtdPedidos}">${qtdPedidos}</c:if>
+                      </p>
+                    </div>
                   </div>
                 </div>
               </div>
-            </div>
-            <div class="row">
-              <div class="col-12">
-                <div class="card ">
-                  <div class="card-header ">
-                    <h5 class="card-title">Pedidos</h5>
-                  </div>
-                  <div class="card-body ">                
-                    <canvas id="doughnut-chart" height="250"></canvas>
-                  </div>
-                </div>
+              <div class="card-footer ">
+                <hr>
               </div>
             </div>
           </div>
-        </div>       
+        </div>
+        <div class="row">         
+
+          <div class="col-md-4">
+            <div class="card ">
+              <div class="card-header ">
+                <h5 class="card-title">Pedidos</h5>
+              </div>
+              <div class="card-body ">
+                
+                <canvas id="doughnut-chart" height="250"></canvas>
+
+              </div>
+            </div>
+          </div>
+
+        </div>          
       </div>
       <footer class="footer footer-black  footer-white ">
         <div class="container-fluid">

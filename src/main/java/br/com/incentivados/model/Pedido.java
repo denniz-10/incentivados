@@ -28,7 +28,6 @@ import lombok.ToString;
 @Setter
 @Getter
 @Entity
-@Table(name = "pedido")
 public class Pedido implements Serializable {
 
 	private static final long serialVersionUID = 6294036397205620735L;
@@ -37,20 +36,18 @@ public class Pedido implements Serializable {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 
-	@Temporal(TemporalType.TIMESTAMP)
-	@Column(name = "data_cadastro")
+	@Temporal(TemporalType.TIMESTAMP)	
 	private Date dataCadastro;
 
 	@Column(columnDefinition = "TEXT")
 	private String solicitacao;
 
+	@Enumerated(EnumType.ORDINAL)
+	private StatusPedido status;
+	
 	@JoinColumn(name = "documentos_pedido_id")
 	@OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
 	private DocumentosPedido documentosPedido;
-
-	@Enumerated(EnumType.ORDINAL)
-	@Column(name = "status")
-	private StatusPedido status;
 
 	@JoinColumn(name = "usuario_id")
 	@ManyToOne(fetch = FetchType.EAGER)

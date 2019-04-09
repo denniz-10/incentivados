@@ -25,7 +25,6 @@ import lombok.ToString;
 @Setter
 @Getter
 @Entity
-@Table(name = "incentivo_fiscal")
 public class IncentivoFiscal implements Serializable{
 	
 	/**

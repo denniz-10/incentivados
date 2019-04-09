@@ -18,7 +18,6 @@ import java.util.List;
 @Setter
 @Getter
 @Entity
-@Table(name = "usuario")
 public class Usuario implements Serializable {
 
 	private static final long serialVersionUID = 4802512298815065850L;
@@ -27,36 +26,25 @@ public class Usuario implements Serializable {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 
-	@Temporal(TemporalType.TIMESTAMP)
-	@Column(name = "data_cadastro")
+	@Temporal(TemporalType.TIMESTAMP)	
 	private Date dataCadastro;
 
-	@Temporal(TemporalType.TIMESTAMP)
-	@Column(name = "ultimo_acesso")
+	@Temporal(TemporalType.TIMESTAMP)	
 	private Date ultimoAcesso;
-
-	@NotBlank(message = "Nome não pode ser nulo ou vazio.")
+	
 	private String nome;
-
-	@NotBlank(message = "Sobrenome não pode ser nulo ou vazio.")
+	
 	private String sobrenome;
 
-	@NotBlank(message = "Telefone não pode ser nulo ou vazio.")
 	private String telefone;
 
-	@NotBlank(message = "Cpf não pode ser nulo ou vazio.")
-	@Length(min = 14, max = 14, message = "O cpf Deve conter 14 dígitos.")
-	@Column(unique = true)
 	private String cpf;
-
-	@Email(message = "Informe um email válido")
+	
 	private String email;
 
-	@NotNull(message = "Senha não pode ser nula.")
-	@Length(min = 6, message = "Senha deve conter no mínimo 6 caracteres")
 	private String senha;
 	
-	@OneToMany(fetch = FetchType.LAZY, orphanRemoval = true)
+	@OneToMany(mappedBy = "usuario",fetch = FetchType.LAZY, orphanRemoval = true)
 	private List<Pedido> pedidos;
 
 	@Enumerated(EnumType.ORDINAL)

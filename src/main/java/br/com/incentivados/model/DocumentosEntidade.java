@@ -19,7 +19,6 @@ import lombok.ToString;
 @Setter
 @Getter
 @Entity
-@Table(name = "documentos_entidade")
 public class DocumentosEntidade {
 	
 	@Id

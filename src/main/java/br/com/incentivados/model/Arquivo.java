@@ -23,7 +23,6 @@ import lombok.ToString;
 @Setter
 @Getter
 @Entity
-@Table(name = "arquivo")
 public class Arquivo implements Serializable {
 	
 	/**

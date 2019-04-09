@@ -31,7 +31,6 @@ import lombok.ToString;
 @Setter
 @Getter
 @Entity
-@Table(name = "empresa")
 public class Empresa implements Serializable {
 
 	private static final long serialVersionUID = -8764619988704402910L;
