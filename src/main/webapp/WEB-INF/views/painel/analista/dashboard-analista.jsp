@@ -25,51 +25,170 @@
 <body class="">
   <div class="wrapper ">
     <!-- Sidebar -->
-    <c:import url="/WEB-INF/views/componentes/sidebar/sidebar-admin.jsp" />    
+    <c:import url="/WEB-INF/views/componentes/sidebar/sidebar-analista.jsp" />    
     <div class="main-panel">
       <!-- Navbar -->
-      <c:import url="/WEB-INF/views/componentes/navbar/navbar-admin.jsp" /> 
+      <c:import url="/WEB-INF/views/componentes/navbar/navbar-analista.jsp" /> 
       <div class="content">
         <div class="row">
-          <div class="col-lg-4 col-md-4 col-sm-6">
-            <div class="row">
-              <div class="col-12">
-                <div class="card card-stats">
-                  <div class="card-body ">
-                    <div class="row">
-                      <div class="col-5 col-md-4">
-                        <div class="icon-big text-center icon-warning">
-                          <i class="fas fa-hand-holding-heart text-default"></i>
-                        </div>
-                      </div>
-                      <div class="col-7 col-md-8">
-                        <div class="numbers">
-                          <p class="card-category">Pedidos</p>
-                          <p class="card-title">
-                            <c:if test = "${empty qtdPedidos}">0</c:if>
-                            <c:if test = "${not empty qtdPedidos}">${qtdPedidos}</c:if>
-                          </p>
-                        </div>
-                      </div>
+          <div class="col-lg-4 col-md-4 col-sm-6">            
+            <div class="card card-stats">
+              <div class="card-body ">
+                <div class="row">
+                  <div class="col-5 col-md-4">
+                    <div class="icon-big text-center icon-warning">
+                      <i class="fas fa-hand-holding-heart text-default"></i>
                     </div>
                   </div>
-                  <div class="card-footer ">
-                    <hr>
+                  <div class="col-7 col-md-8">
+                    <div class="numbers">
+                      <p class="card-category">Pedidos</p>
+                      <p class="card-title">
+                        <c:if test = "${empty qtdPedidos}">0</c:if>
+                        <c:if test = "${not empty qtdPedidos}">${qtdPedidos}</c:if>
+                      </p>
+                    </div>
                   </div>
                 </div>
               </div>
-            </div>
-            <div class="row">
-              <div class="col-12">
-                <div class="card ">
-                  <div class="card-header ">
-                    <h5 class="card-title">Pedidos</h5>
-                  </div>
-                  <div class="card-body ">                
-                    <canvas id="doughnut-chart" height="250"></canvas>
+              <div class="card-footer ">
+                <hr>
+              </div>
+            </div>              
+          </div>
+        </div> 
+        <div class="row">
+          <div class="col-md-12">
+            <div class="card ">
+              <div class="card-body">
+                <ul class="nav nav-tabs" id="myTab" role="tablist">
+                  <li class="nav-item">
+                    <a class="nav-link active" id="pendentes-tab" data-toggle="tab" href="#pendentes" role="tab" aria-controls="pendentes" aria-selected="true">Pendentes: ${qtdPendente}</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" id="aprovados-tab" data-toggle="tab" href="#aprovados" role="tab" aria-controls="aprovados" aria-selected="false">Aprovados: ${qtdAprovado}</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" id="recusados-tab" data-toggle="tab" href="#recusados" role="tab" aria-controls="recusados" aria-selected="false">Recusados: ${qtdRecusado}</a>
+                  </li>
+                </ul>
+                <div class="tab-content" id="myTabContent">
+                  <div class="tab-pane fade show active" id="pendentes" role="tabpanel" aria-labelledby="pendentes-tab"> 
+                    <c:if test = "${empty pendentes}">
+                      <div class="row">
+                          <div class="col-12">
+                            <div class="alert alert-danger" role="alert">
+                              <p class="text-bold">Não há registro(s).</p>
+                            </div>
+                          </div>
+                        </div>
+                    </c:if>      
+                    <c:if test = "${not empty pendentes}">              
+                      <div class="table-responsive">
+                        <table class="table">
+                          <thead class=" text-primary">
+                            <th class="text-center">Código Pedido</th>
+                            <th class="text-center">Data Solicitação</th>
+                            <th class="text-center">Entidade</th>
+                            <th class="text-center">Empresa</th>
+                            <th class="text-center">Loja</th>
+                            <th class="text-center">Carta Ofício</th>
+                          </thead>
+                          <tbody>
+                            <c:forEach var="pedidoPendente" items="${pendentes}">
+                              <tr>
+                                <td class="text-center">${pedidoPendente.id}</td>
+                                <fmt:formatDate type = "both" dateStyle = "short" timeStyle = "short" value = "${pedidoPendente.dataCadastro}" var="dataCadastro" />
+                                <td class="text-center">${dataCadastro}</td>
+                                <td class="text-center">${pedidoPendente.entidade.nomeFantasia}</td>
+                                <td class="text-center">${pedidoPendente.empresa.nomeFantasia}</td>
+                                <td class="text-center">${pedidoPendente.analista.endereco.bairro} - ${pedidoPendente.analista.endereco.cidade} / ${pedidoPendente.analista.endereco.estado}</td>
+                                <td class="text-center"><a href="${path}/${pedidoPendente.documentosPedido.cartaOficio.path}" title="Visualizar" target="_blank"><i class="far fa-file-alt"></i> Carta Ofício</a></td>                                
+                              </tr>
+                            </c:forEach>
+                          </tbody>
+                        </table>
+                      </div>   
+                    </c:if>          
+                  </div>                  
+                  <div class="tab-pane fade show" id="aprovados" role="tabpanel" aria-labelledby="aprovados-tab"> 
+                    <c:if test = "${empty aprovados}">
+                      <div class="row">
+                        <div class="col-12">
+                          <div class="alert alert-danger" role="alert">
+                            <p class="text-bold">Não há registro(s).</p>
+                          </div>
+                        </div>
+                      </div>
+                    </c:if>      
+                    <c:if test = "${not empty aprovados}">              
+                      <div class="table-responsive">
+                        <table class="table">
+                          <thead class=" text-primary">
+                            <th class="text-center">Código Pedido</th>
+                            <th class="text-center">Data Solicitação</th>
+                            <th class="text-center">Entidade</th>
+                            <th class="text-center">Empresa</th>
+                            <th class="text-center">Loja</th>
+                            <th class="text-center">Carta Ofício</th>
+                          </thead>
+                          <tbody>
+                            <c:forEach var="pedidoAprovado" items="${aprovados}">
+                              <tr>
+                                <td class="text-center">${pedidoAprovado.id}</td>
+                                <fmt:formatDate type = "both" dateStyle = "short" timeStyle = "short" value = "${pedidoAprovado.dataCadastro}" var="dataCadastro" />
+                                <td class="text-center">${dataCadastro}</td>
+                                <td class="text-center">${pedidoAprovado.entidade.nomeFantasia}</td>
+                                <td class="text-center">${pedidoAprovado.empresa.nomeFantasia}</td>
+                                <td class="text-center">${pedidoAprovado.analista.endereco.bairro} - ${pedidoAprovado.analista.endereco.cidade} / ${pedidoAprovado.analista.endereco.estado}</td>
+                                <td class="text-center"><a href="${path}/${pedidoAprovado.documentosPedido.cartaOficio.path}" title="Visualizar" target="_blank"><i class="far fa-file-alt"></i> Carta Ofício</a></td>                                
+                              </tr>
+                            </c:forEach>
+                          </tbody>
+                        </table>
+                      </div>   
+                    </c:if>  
+                  </div>                  
+                  <div class="tab-pane fade show" id="recusados" role="tabpanel" aria-labelledby="recusados-tab"> 
+                    <c:if test = "${empty recusados}">
+                      <div class="row">
+                        <div class="col-12">
+                          <div class="alert alert-danger" role="alert">
+                            <p class="text-bold">Não há registro(s).</p>
+                          </div>
+                        </div>
+                      </div>
+                    </c:if>      
+                    <c:if test = "${not empty recusados}">              
+                      <div class="table-responsive">
+                        <table class="table">
+                          <thead class=" text-primary">
+                            <th class="text-center">Código Pedido</th>
+                            <th class="text-center">Data Solicitação</th>
+                            <th class="text-center">Entidade</th>
+                            <th class="text-center">Empresa</th>
+                            <th class="text-center">Loja</th>
+                            <th class="text-center">Carta Ofício</th>
+                          </thead>
+                          <tbody>
+                            <c:forEach var="pedidoReprovado" items="${recusados}">
+                              <tr>
+                                <td class="text-center">${pedidoReprovado.id}</td>
+                                <fmt:formatDate type = "both" dateStyle = "short" timeStyle = "short" value = "${pedidoReprovado.dataCadastro}" var="dataCadastro" />
+                                <td class="text-center">${dataCadastro}</td>
+                                <td class="text-center">${pedidoReprovado.entidade.nomeFantasia}</td>
+                                <td class="text-center">${pedidoReprovado.empresa.nomeFantasia}</td>
+                                <td class="text-center">${pedidoReprovado.analista.endereco.bairro} - ${pedidoReprovado.analista.endereco.cidade} / ${pedidoReprovado.analista.endereco.estado}</td>
+                                <td class="text-center"><a href="${path}/${pedidoReprovado.documentosPedido.cartaOficio.path}" title="Visualizar" target="_blank"><i class="far fa-file-alt"></i> Carta Ofício</a></td>                                
+                              </tr>
+                            </c:forEach>
+                          </tbody>
+                        </table>
+                      </div>   
+                    </c:if>  
                   </div>
                 </div>
-              </div>
+              </div>              
             </div>
           </div>
         </div>       
@@ -115,95 +234,7 @@
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.min.js"></script>
   <!-- Control Center for Now Ui Dashboard: parallax effects, scripts for the example pages etc -->
   <script src="${path}/assets/js/paper-dashboard.min.js?v=2.0.0" type="text/javascript"></script>
-    <script type="text/javascript">    
-      var lineCtx = document.getElementById("line-chart").getContext('2d');
-      var lineChart = new Chart(lineCtx, {
-          type: 'line',
-          data: {
-              labels: ["Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho", "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro"],
-              datasets: [{
-                  label: 'Registros',
-                  data: [12, 19, 3, 5, 2, 3, 12, 19, 3, 5, 2, 3],
-                  backgroundColor: [
-                      'rgba(54, 162, 235, 0.2)',
-                  ],
-                  borderColor: [
-                      'rgba(54, 162, 235, 1)',
-                  ],
-                  borderWidth: 1
-              }]
-          },
-          options: {
-              legend: {
-                  display: false
-              },
-              scales: {
-                  yAxes: [{
-                      ticks: {
-                          beginAtZero:true
-                      }
-                  }]
-              }
-          }
-      });
-
-      var barCtx = document.getElementById("bar-chart").getContext('2d');
-      var barChart = new Chart(barCtx, {
-          type: 'bar',
-          data: {
-              labels: ["Criança e Adolescente", "Fundo do Idoso", "Março", "Abril", "Maio", "Junho", "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro"],
-              datasets: [{
-                  label: 'Registros',
-                  data: [12, 19, 3, 5, 2, 3, 12, 19, 3, 5, 2, 3],
-                  backgroundColor: [
-                      'rgba(54, 162, 235, 0.2)',
-                      'rgba(54, 162, 235, 0.2)',
-                      'rgba(54, 162, 235, 0.2)',
-                      'rgba(54, 162, 235, 0.2)',
-                      'rgba(54, 162, 235, 0.2)',
-                      'rgba(54, 162, 235, 0.2)',
-                      'rgba(54, 162, 235, 0.2)',
-                      'rgba(54, 162, 235, 0.2)',
-                      'rgba(54, 162, 235, 0.2)',
-                      'rgba(54, 162, 235, 0.2)',
-                      'rgba(54, 162, 235, 0.2)',
-                      'rgba(54, 162, 235, 0.2)',
-                      'rgba(54, 162, 235, 0.2)'
-                  ],
-                  borderColor: [
-                      'rgba(54, 162, 235, 1)',
-                      'rgba(54, 162, 235, 1)',
-                      'rgba(54, 162, 235, 1)',
-                      'rgba(54, 162, 235, 1)',
-                      'rgba(54, 162, 235, 1)',
-                      'rgba(54, 162, 235, 1)',
-                      'rgba(54, 162, 235, 1)',
-                      'rgba(54, 162, 235, 1)',
-                      'rgba(54, 162, 235, 1)',
-                      'rgba(54, 162, 235, 1)',
-                      'rgba(54, 162, 235, 1)',
-                      'rgba(54, 162, 235, 1)'
-                  ],
-                  borderWidth: 1
-              }]
-          },
-          options: {
-              legend: {
-                  display: false
-              },
-              scales: {
-                xAxes: [
-                  {
-                    ticks:{
-                      callback: function (value) {
-                        return ""
-                      }
-                    },
-                  },
-                ]
-              }
-          }
-      });
+    <script type="text/javascript">
 
       var doughnutCtx = document.getElementById("doughnut-chart").getContext('2d');
       var doughnutChart = new Chart(doughnutCtx, {

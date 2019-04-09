@@ -38,11 +38,13 @@ public class PedidoService {
 		pedido.setUsuario(usuario);
 		pedido.setAnalista(analista);
 		pedido.setEmpresa(empresa);
-		pedido.setEntidade(entidade);		
+		pedido.setEntidade(entidade);
 
 		pedido.getDocumentosPedido().getCartaOficio()
-				.setPath(upload(request, cartaOficio.getFile(), "carta-oficio-" + DateTimeFormatter.ofPattern("ddMMuuuuHHmmss").format(LocalDateTime.now()) + "."
-						+ cartaOficio.getFile().getOriginalFilename().split("\\.")[1], path));
+				.setPath(upload(request, cartaOficio.getFile(),
+						"carta-oficio-" + DateTimeFormatter.ofPattern("ddMMuuuuHHmmss").format(LocalDateTime.now())
+								+ "." + cartaOficio.getFile().getOriginalFilename().split("\\.")[1],
+						path));
 
 		return pedidoRepository.save(pedido);
 	}
@@ -62,6 +64,11 @@ public class PedidoService {
 		return pedidoRepository.findByUsuario(usuario);
 	}
 
+	// Serviço de buscar PEDIDO pelo USUÁRIO
+	public List<Pedido> findByAnalistaAndStatus(Usuario analista, StatusPedido status) {
+		return pedidoRepository.findByAnalistaAndStatus(analista, status);
+	}
+
 	// Serviço que contabiliza todos os PEDIDOS
 	public Long count() {
 		return pedidoRepository.count();
@@ -75,6 +82,16 @@ public class PedidoService {
 	// Serviço que contabiliza todos os PEDIDOS por USUÁRIO
 	public Long countByUsuario(Usuario usuario) {
 		return pedidoRepository.countByUsuario(usuario);
+	}
+
+	// Serviço que contabiliza todos os PEDIDOS por ANALISTA
+	public Long countByAnalista(Usuario analista) {
+		return pedidoRepository.countByUsuario(analista);
+	}
+
+	// Serviço que contabiliza todos os PEDIDOS por ANALISTA e STATUS
+	public Long countByAnalistaAndStatus(Usuario analista, StatusPedido status) {
+		return pedidoRepository.countByAnalistaAndStatus(analista, status);
 	}
 
 	// Serviço de upload de arquivos para o servidor

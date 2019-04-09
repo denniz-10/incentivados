@@ -58,7 +58,7 @@ public class DashboardController {
 			model.addAttribute("redirect", redirectAttributesRedirect);
 		}
 
-		if (redirectAttributesAcesso.equals("negado")) {
+		if (redirectAttributesAcesso.equals("negado")) {			
 			model.addAttribute("acessoNegado", true);
 		}
 
@@ -149,6 +149,14 @@ public class DashboardController {
 			return "painel/entidade/dashboard-entidade";
 
 		case ANALISTA:
+			model.addAttribute("pendentes", pedidoService.findByAnalistaAndStatus(usuario, StatusPedido.PENDENTE));
+			model.addAttribute("qtdPendente", pedidoService.countByAnalistaAndStatus(usuario, StatusPedido.PENDENTE));
+			
+			model.addAttribute("aprovados", pedidoService.findByAnalistaAndStatus(usuario, StatusPedido.APROVADO));
+			model.addAttribute("qtdAprovado", pedidoService.countByAnalistaAndStatus(usuario, StatusPedido.APROVADO));
+			
+			model.addAttribute("recusados", pedidoService.findByAnalistaAndStatus(usuario, StatusPedido.RECUSADO));
+			model.addAttribute("qtdRecusado", pedidoService.countByAnalistaAndStatus(usuario, StatusPedido.RECUSADO));
 			return "painel/analista/dashboard-analista";
 
 		case ADMIN:
