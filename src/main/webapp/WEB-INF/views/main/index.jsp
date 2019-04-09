@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"  %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <html class="no-js" lang="pt-br">
 
 <head>
@@ -14,7 +14,7 @@
     <title>Home</title>
     <!-- Place favicon.ico in the root directory -->
     <link rel="apple-touch-icon" href="${path}/main/images/apple-touch-icon.png">
-    <link rel="shortcut icon" type="image/ico" href="${path}/main/images/favicon.ico" />
+    <link rel="shortcut icon" type="image/ico" href="${path}/main/images/favicon.ico"/>
     <!-- Plugin-CSS -->
     <link rel="stylesheet" href="${path}/main/css/bootstrap.min.css">
     <link rel="stylesheet" href="${path}/main/css/owl.carousel.min.css">
@@ -29,8 +29,8 @@
     <script src="${path}/main/js/vendor/modernizr-2.8.3.min.js"></script>
 
     <!--[if lt IE 9]>
-        <script src="//oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-        <script src="//oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <script src="//oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="//oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
 </head>
 
@@ -46,966 +46,706 @@
 <%--        </div>--%>
 <%--    </div>--%>
 
-    <!--Mainmenu-area-->
-    <div class="mainmenu-area" data-spy="affix" data-offset-top="100">
-        <div class="container">
-            <!--Logo-->
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#primary-menu">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a href="#" class="navbar-brand logo">
-                    <img src="${path}/main/images/logoIncentivados.png" width="30" height="30" style="display:inline-block;">
-                    Incentivados
-                    <h5>Yabá Consultoria</h5>
-                </a>
+<!--Mainmenu-area-->
+<div class="mainmenu-area" data-spy="affix" data-offset-top="100">
+    <div class="container">
+        <!--Logo-->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#primary-menu">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a href="#" class="navbar-brand logo">
+                <img src="${path}/main/images/logoIncentivados.png" width="30" height="30"
+                     style="display:inline-block;">
+                Incentivados
+                <h5>Yabá Consultoria</h5>
+            </a>
 
+        </div>
+        <!--Logo/-->
+        <nav class="collapse navbar-collapse" id="primary-menu">
+            <ul class="nav navbar-nav navbar-right">
+                <li class="active"><a href="#home-page">Home</a></li>
+                <li><a href="#service-page">Sobre</a></li>
+                <li><a href="#feature-page">Serviços</a></li>
+                <li><a href="#plataforma">Plataforma</a></li>
+                <li><a href="#faq-page">FAQ</a></li>
+                <li><a href="#contact-page">Contato</a></li>
+                <li><a href="#" data-toggle="modal" data-target="#modalLogin">Login</a></li>
+
+            </ul>
+        </nav>
+    </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="modalLogin" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+     aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-body">
+                <div class="container">
+                    <div class="row ">
+                        <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
+                            <div class="card card-signin my-5">
+                                <div class="card-body">
+                                    <h5 class="card-title text-center">Sign In</h5>
+                                    <form class="form-signin">
+                                        <div class="form-label-group">
+                                            <input type="email" id="inputEmail" class="form-control"
+                                                   placeholder="Email" required autofocus>
+                                            <label for="inputEmail">Email</label>
+                                        </div>
+
+                                        <div class="form-label-group">
+                                            <input type="password" id="inputPassword" class="form-control"
+                                                   placeholder="Senha" required>
+                                            <label for="inputPassword">Senha</label>
+                                        </div>
+
+                                        <div class="custom-control custom-checkbox mb-3">
+                                            <input type="checkbox" class="custom-control-input" id="customCheck1">
+                                            <label class="custom-control-label" for="customCheck1">
+                                                Remember password</label>
+                                        </div>
+                                        <button class="btn btn-lg btn-primary btn-block text-uppercase"
+                                                type="submit">Entrar
+                                        </button>
+                                        <hr class="my-4">
+                                        <button class="btn btn-lg btn-primary btn-block text-uppercase"
+                                                type="submit">Cadastre-se
+                                        </button>
+                                        <hr class="my-4">
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <!--Logo/-->
-            <nav class="collapse navbar-collapse" id="primary-menu">
-                <ul class="nav navbar-nav navbar-right">
-                    <li class="active"><a href="#home-page">Home</a></li>
-                    <li><a href="#service-page">Sobre</a></li>
-                    <li><a href="#feature-page">Serviços</a></li>
-                    <li><a href="#plataforma">Plataforma</a></li>
-                    <li><a href="#faq-page">FAQ</a></li>
-                    <li><a href="#contact-page">Contato</a></li>
-                    <li><a href="${path}/login">Login</a></li>
 
-                </ul>
-            </nav>
         </div>
     </div>
-    
-    <!--Mainmenu-area/-->
-    <div id="flow">
-        <span class="flow-1"></span>
-        <span class="flow-2"></span>
-        <span class="flow-3"></span>
+</div>
+
+<!--Mainmenu-area/-->
+<div id="flow">
+    <span class="flow-1"></span>
+    <span class="flow-2"></span>
+    <span class="flow-3"></span>
+</div>
+
+<!--Header-area-->
+<header class="header-area overlay full-height relative v-center" id="home-page">
+    <div class="absolute anlge-bg"></div>
+    <div class="container">
+        <div class="row v-center">
+            <div class="col-xs-12 col-md-7 header-text">
+                <h2 class="h2">Conectando empresas e proponentes</h2>
+                <p>Aumentar a chances de captação de recursos para organizações sociais e potencializar o uso
+                    qualificado de recursos dedutíveis do Imposto das empresas é o propósito do Incentivados no
+                    Brasil. </p>
+                <a href="#" class="button white">Comece agora!</a>
+            </div>
+        </div>
+    </div>
+</header>
+<!--Header-area/-->
+
+
+<!-- QUEM SOMOS -->
+<section class="white-bg section-padding" id="service-page">
+    <div class="row">
+        <div class="col-xs-12 col-sm-6 col-sm-offset-3 text-center">
+            <div class="titulo-section wow animated bounceInRight slower">
+                <h2>Quem somos?</h2>
+            </div>
+        </div>
     </div>
 
-    <!--Header-area-->
-    <header class="header-area overlay full-height relative v-center" id="home-page">
-        <div class="absolute anlge-bg"></div>
-        <div class="container">
-            <div class="row v-center">
-                <div class="col-xs-12 col-md-7 header-text">
-                    <h2 class="h2">Conectando empresas e proponentes</h2>
-                    <p>O Incentivados facilita seu trabalho de ir atrás de um investidor/patrocinador para seu projeto.
-                        Aumente seu leque de opções e possibilidades cadastrando seu </p>
-                    <a href="#" class="button white">Comece agora</a>
-                </div>
-            </div>
-        </div>
-    </header>
-    <!--Header-area/-->
-
-
-
-    <!--Feature-area-->
-    <section class="white-bg section-padding" id="service-page">
-
-        <div class="container">
-            <div class="row">
-                <div class="col-xs-12 col-sm-4">
-                    <div class="box wow animated bounceInLeft slower">
-                        <div class="box-icon">
-                            <img src="${path}/main/images/portfolio-icon-4.png" alt="">
-                        </div>
-                        <h4>Quem somos!</h4>
-                        <p>Com intuito de encurtar o caminho para a captação de recursos dos projetos cadastrados em
-                            nossa plataforma, o Incentivados é um projeto da Yabá Consultoria, organização responsável
-                            por fazer a ponte entre as Instituições Sociais e as Empresas.</p>
-                    </div>
-                </div>
-                <div class="col-xs-12 col-sm-4">
-                    <div class="box wow animated bounceInRight slower">
-                        <div class="box-icon">
-                            <img src="${path}/main/images/service-icon-2.png" alt="">
-                        </div>
-                        <h4>O que fazemos?</h4>
-                        <p>A plataforma Incentivados consiste em receptar os projetos cadastrados para captação de
-                            recursos, e apresentá-los para as empresas que destinam seu imposto de renda via Leis de
-                            Incentivo Fiscal.</p>
-                    </div>
-                </div>
-                <div class="col-xs-12 col-sm-4">
-                    <div class="box wow animated bounceInLeft slower">
-                        <div class="box-icon">
-                            <img src="${path}/main/images/portfolio-icon-4.png" alt="">
-                        </div>
-                        <h4>Quem somos!</h4>
-                        <p>Com intuito de encurtar o caminho para a captação de recursos dos projetos cadastrados em
-                            nossa plataforma, o Incentivados é um projeto da Yabá Consultoria, organização responsável
-                            por fazer a ponte entre as Instituições Sociais e as Empresas.</p>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-    </section>
-    <!--Feature-area/-->
-
-    <section class="gray-bg section-padding" id="feature-page">
+    <div class="container">
         <div class="row">
+            <div class="col-sm-12 col-md-12">
+                <div class="box wow animated bounceInLeft slower">
+                    <p class="text-justify lead">O Incentivados é uma iniciativa da YABÁ, consultoria especializada
+                        em
+                        Investimento Social
+                        Privado, captação de recursos e monitoramento de resultados.
+                        A plataforma tecnológica é uma estratégia para viabilizar a curadoria de projetos aprovados
+                        nas Leis Incentivo Fiscal em âmbito federal, estadual e municipal.
+                        Conectar empresas à bons projetos, é certeza de fazer a diferença na sociedade.
+
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!--SERVIÇOS-->
+<section class="gray-bg section-padding" id="feature-page">
+    <div class="row">
+        <div class="col-xs-12 col-sm-6 col-sm-offset-3 text-center">
+            <div class="titulo-section">
+                <h2>Como fazemos?</h2>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <!-- CARDS DE ASSOSIAÇÕES -->
+            <div class="col-lg-6">
+                <div class="text-center lead">
+                    <p class="h1 title-bg" style="color: #ffffff; border-radius: 15px;">PROPONENTES</p>
+                </div>
+                <div class="row">
+                    <div class="col-md-6 col-lg-6">
+                        <div class="box">
+                            <div class="box-icon">
+                                <img src="${path}/main/images/portfolio-icon-1.png" alt="">
+                            </div>
+                            <h3 style="border-bottom-color: red">Captação de recursos</h3>
+                            <p>Conexão de projetos aprovados em Leis de Incentivo com empresas</p>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-6">
+
+                        <div class="box">
+                            <div class="box-icon">
+                                <img src="${path}/main/images/portfolio-icon-2.png" alt="">
+                            </div>
+                            <h3>Monitoramento</h3>
+                            <p>Consolidação dos resultados por meio de comunicação personalizada para
+                                estimular/manter a parceria com as empresas apoiadoras.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="box">
+                            <div class="box-icon">
+                                <img src="${path}/main/images/portfolio-icon-3.png" alt="">
+                            </div>
+                            <h3>Articulação</h3>
+                            <p>Identificação de oportunidades, eventos e sinergias entre projetos e empresas.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <!-- CARD DE EMPRESAS -->
+            <div class="col-lg-6">
+                <div class="d-flex text-center lead">
+                    <p class="h1 title-bg " style="color: #ffffff; border-radius: 15px;">EMPRESAS</p>
+                </div>
+                <div class="row">
+                    <div class="col-md-6 col-lg-6">
+                        <div class="box">
+                            <div class="box-icon">
+                                <img src="${path}/main/images/portfolio-icon-1.png" alt="">
+                            </div>
+                            <h3>Parceria</h3>
+                            <p> Identificação de iniciativas de alto impacto social alinhadas às estratégias de
+                                negócio e marca da empresa.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-6">
+                        <div class="box">
+                            <div class="box-icon">
+                                <img src="${path}/main/images/portfolio-icon-3.png" alt="">
+                            </div>
+                            <h3>Engajamento</h3>
+                            <p>Mobilização de públicos de interesse internos e externos a partir de comunicação
+                                personalizada e alinhada às iniciativas apoiadas.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="box">
+                            <div class="box-icon">
+                                <img src="${path}/main/images/portfolio-icon-2.png" alt="">
+                            </div>
+                            <h3>Suporte técnico</h3>
+                            <p>Gestão do processo operacional e o monitoramento da execução das iniciativas, é um
+                                diferencial para garantir os resultados, mitigar riscos e assegurar sexigências de
+                                Compliance e Auditoria.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<%--SERVIÇOS--%>
+
+
+<%--PLATAFORMA--%>
+<section class="angle-bg sky-bg section-padding" id="plataforma">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12">
+                <div id="caption_slide" class="carousel slide caption-slider" data-ride="carousel">
+                    <div class="carousel-inner" role="listbox">
+                        <div class="item active row">
+                            <div class="v-center">
+                                <div class="col-xs-12 col-md-6">
+                                    <div class="caption-title" data-animation="animated fadeInUp">
+                                        <h2>Conheça a platarfoma</h2>
+                                    </div>
+                                    <div class="caption-desc" data-animation="animated fadeInUp">
+                                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                                            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
+                                            veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+                                            commodo consequat. Duis aute</p>
+                                    </div>
+                                    <div class="caption-button" data-animation="animated fadeInUp">
+                                        <a href="#" class="button">Cadastre-se</a>
+                                    </div>
+                                </div>
+                                <div class="col-xs-6 col-md-3">
+                                    <div class="caption-photo one" data-animation="animated fadeInRight">
+                                        <img src="${path}/main/images/screen-1.jpg" alt="">
+                                    </div>
+                                </div>
+                                <div class="col-xs-6 col-md-3">
+                                    <div class="caption-photo two" data-animation="animated fadeInRight">
+                                        <img src="${path}/main/images/screen-2.jpg" alt="">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="item row">
+                            <div class="v-center">
+                                <div class="col-xs-12 col-md-6">
+                                    <div class="caption-title" data-animation="animated fadeInUp">
+                                        <h2>Facil de usar</h2>
+                                    </div>
+                                    <div class="caption-desc" data-animation="animated fadeInUp">
+                                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                                            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
+                                            veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+                                            commodo consequat. Duis aute</p>
+                                    </div>
+                                    <div class="caption-button" data-animation="animated fadeInUp">
+                                        <a href="#" class="button">Crie sua conta</a>
+                                    </div>
+                                </div>
+                                <div class="col-xs-6 col-md-3">
+                                    <div class="caption-photo one" data-animation="animated fadeInRight">
+                                        <img src="${path}/main/images/screen-3.jpg" alt="">
+                                    </div>
+                                </div>
+                                <div class="col-xs-6 col-md-3">
+                                    <div class="caption-photo two" data-animation="animated fadeInRight">
+                                        <img src="${path}/main/images/screen-4.jpg" alt="">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="item row">
+                            <div class="v-center">
+                                <div class="col-xs-12 col-md-6">
+                                    <div class="caption-title" data-animation="animated fadeInUp">
+                                        <h2>Gerencia suas atividades</h2>
+                                    </div>
+                                    <div class="caption-desc" data-animation="animated fadeInUp">
+                                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                                            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
+                                            veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+                                            commodo consequat. Duis aute</p>
+                                    </div>
+                                    <div class="caption-button" data-animation="animated fadeInUp">
+                                        <a href="#" class="button">Acesse o painel</a>
+                                    </div>
+                                </div>
+                                <div class="col-xs-6 col-md-3">
+                                    <div class="caption-photo one" data-animation="animated fadeInRight">
+                                        <img src="${path}/main/images/screen-7.jpg" alt="">
+                                    </div>
+                                </div>
+                                <div class="col-xs-6 col-md-3">
+                                    <div class="caption-photo two" data-animation="animated fadeInRight">
+                                        <img src="${path}/main/images/screen-2.jpg" alt="">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="item row">
+                            <div class="v-center">
+                                <div class="col-xs-12 col-md-6">
+                                    <div class="caption-title" data-animation="animated fadeInUp">
+                                        <h2>Deseja fazer um solicitação?</h2>
+                                    </div>
+                                    <div class="caption-desc" data-animation="animated fadeInUp">
+                                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                                            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
+                                            veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+                                            commodo consequat. Duis aute</p>
+                                    </div>
+                                    <div class="caption-button" data-animation="animated fadeInUp">
+                                        <a href="#" class="button">Com um click</a>
+                                    </div>
+                                </div>
+                                <div class="col-xs-6 col-md-3">
+                                    <div class="caption-photo one" data-animation="animated fadeInRight">
+                                        <img src="${path}/main/images/screen-3.jpg" alt="">
+                                    </div>
+                                </div>
+                                <div class="col-xs-6 col-md-3">
+                                    <div class="caption-photo two" data-animation="animated fadeInRight">
+                                        <img src="${path}/main/images/screen-4.jpg" alt="">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Indicators -->
+                    <ol class="carousel-indicators caption-indector">
+                        <li data-target="#caption_slide" data-slide-to="0" class="active">
+                            <strong>Cadastro </strong>consectetur adipisicing elit.
+                        </li>
+                        <li data-target="#caption_slide" data-slide-to="1">
+                            <strong>Facil de usar </strong>consectetur adipisicing elit.
+                        </li>
+                        <li data-target="#caption_slide" data-slide-to="2">
+                            <strong>Painel</strong>consectetur adipisicing elit.
+                        </li>
+                        <li data-target="#caption_slide" data-slide-to="3">
+                            <strong>Peça uma Doação </strong>consectetur adipisicing elit.
+                        </li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<%--PLATAFORMA--%>
+
+<%--PERGUNTAS FREQUENTES--%>
+<section class="gray-bg section-padding" id="faq-page">
+    <div class="container">
+        <div class="row justify-content-end">
             <div class="col-xs-12 col-sm-6 col-sm-offset-3 text-center">
-                <div class="titulo-section">
-                    <h2>Como fazemos?</h2>
+                <div class="page-title">
+                    <h2>Perguntas Frequentes</h2>
+                    <!-- <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Velit voluptates, temporibus at,
+                        facere harum fugiat!</p> -->
                 </div>
             </div>
         </div>
-
-        <div class="container">
-            <div class="row">
-                <!-- CARDS DE ASSOSIAÇÕES -->
-                <div class="col-lg-6">
-                    <div class="d-flex text-center lead">
-                        <p>ASSOCIAÇÕES</p>
-                    </div>
-                    <div class="row">
-                        <div class="col-lg-5">
-                            <div class="box">
-                                <div class="box-icon">
-                                    <img src="${path}/main/images/portfolio-icon-1.png" alt="">
-                                </div>
-                                <h3>Seleção</h3>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cumque quas nulla est
-                                    adipisci,</p>
-                            </div>
-                        </div>
-                        <div class="col-lg-5">
-                            <div class="box">
-                                <div class="box-icon">
-                                    <img src="${path}/main/images/portfolio-icon-1.png" alt="">
-                                </div>
-                                <h3>Seleção</h3>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cumque quas nulla est
-                                    adipisci,</p>
-                            </div>
+        <div class="row justify-content-start">
+            <div class="col-xs-12 col-sm-10 col-sm-offset-1 col-md-8 col-md-offset-2">
+                <div class="panel-group" id="accordion">
+                    <div class="panel">
+                        <h4 class="panel-title">
+                            <a data-toggle="collapse" data-parent="#accordion" href="#collapse1"
+                               aria-expanded="true">Posso cadastrar mais de um projeto na plataforma
+                                Incentivados?</a>
+                        </h4>
+                        <div id="collapse1" class="panel-collapse collapse in">
+                            <p>Sim. Depois de cadastrar a entidade na plataforma, os proponentes podem inscrever
+                                quantos projetos quiserem desde que estejam homologados junto aos Ministérios e/ou
+                                Conselhos de Direitos responsáveis.
+                            </p>
                         </div>
                     </div>
-                    <div class="row">
-                        <div class="col-lg-5">
-                            <div class="box">
-                                <div class="box-icon">
-                                    <img src="${path}/main/images/portfolio-icon-1.png" alt="">
-                                </div>
-                                <h3>Seleção</h3>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cumque quas nulla est
-                                    adipisci,</p>
-                            </div>
-                        </div>
-                        <div class="col-lg-5">
-                            <div class="box">
-                                <div class="box-icon">
-                                    <img src="${path}/main/images/portfolio-icon-1.png" alt="">
-                                </div>
-                                <h3>Seleção</h3>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cumque quas nulla est
-                                    adipisci,</p>
-                            </div>
+                    <div class="panel">
+                        <h4 class="panel-title">
+                            <a data-toggle="collapse" data-parent="#accordion" href="#collapse2">Quais os canais que
+                                podem ser utilizados para sanar dúvidas?</a>
+                        </h4>
+                        <div id="collapse2" class="panel-collapse collapse">
+                            <p>Em casos de dúvidas, entre em contato através do telefone (11) 2389-5766 ou
+                                comunicação@yabaconsultoria.com.br </p>
                         </div>
                     </div>
-                </div>
-                <!-- CARD DE EMPRESAS -->
-                <div class="col-lg-6">
-                    <div class="d-flex text-center lead">
-                        <p>ASSOCIAÇÕES</p>
-                    </div>
-                    <div class="row">
-                        <div class="col-lg-5">
-                            <div class="box">
-                                <div class="box-icon">
-                                    <img src="${path}/main/images/portfolio-icon-1.png" alt="">
-                                </div>
-                                <h3>Seleção</h3>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cumque quas nulla est
-                                    adipisci,</p>
-                            </div>
-                        </div>
-                        <div class="col-lg-5">
-                            <div class="box">
-                                <div class="box-icon">
-                                    <img src="${path}/main/images/portfolio-icon-1.png" alt="">
-                                </div>
-                                <h3>Seleção</h3>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cumque quas nulla est
-                                    adipisci,</p>
-                            </div>
+                    <div class="panel">
+                        <h4 class="panel-title">
+                            <a data-toggle="collapse" data-parent="#accordion" href="#collapse3">Quais documentos
+                                são necessários para inscrever uma entidade? </a>
+                        </h4>
+                        <div id="collapse3" class="panel-collapse collapse">
+                            <p>Para inscrever uma entidade devem ser submetidos a ata de eleição, o estatuto social,
+                                a identidade do presidente e o cartão CNPJ da organização. </p>
                         </div>
                     </div>
-                    <div class="row justify-content-end">
-                        <div class="col-lg-5">
-                            <div class="box">
-                                <div class="box-icon">
-                                    <img src="${path}/main/images/portfolio-icon-1.png" alt="">
-                                </div>
-                                <h3>Seleção</h3>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cumque quas nulla est
-                                    adipisci,</p>
-                            </div>
+                    <div class="panel">
+                        <h4 class="panel-title">
+                            <a data-toggle="collapse" data-parent="#accordion" href="#collapse4">Quais documentos
+                                são necessários para inscrever um projeto?</a>
+                        </h4>
+                        <div id="collapse4" class="panel-collapse collapse">
+                            <p>Para inscrever um projeto devem ser submetidos a proposta técnica, a proposta
+                                orçamentária, a declaração de dados bancários e o diário oficial ou o certificado de
+                                captação de recursos. </p>
                         </div>
-                        <div class="col-lg-5">
-                            <div class="box">
-                                <div class="box-icon">
-                                    <img src="${path}/main/images/portfolio-icon-1.png" alt="">
-                                </div>
-                                <h3>Seleção</h3>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cumque quas nulla est
-                                    adipisci,</p>
-                            </div>
+                    </div>
+                    <div class="panel">
+                        <h4 class="panel-title">
+                            <a data-toggle="collapse" data-parent="#accordion" href="#collapse5">Qual o tempo de
+                                avaliação do projeto inscrito na plataforma?</a>
+                        </h4>
+                        <div id="collapse5" class="panel-collapse collapse">
+                            <p>Os projetos são avaliados conforme as regras de destinação de recursos de cada
+                                empresa patrocinadora. </p>
+                        </div>
+                    </div>
+                    <div class="panel">
+                        <h4 class="panel-title">
+                            <a data-toggle="collapse" data-parent="#accordion" href="#collapse6">Existe um prazo
+                                limite para inscrição do projeto?</a>
+                        </h4>
+                        <div id="collapse6" class="panel-collapse collapse">
+                            <p>Não. Os projetos podem ser submetidos durante todo ano. Porém, é importante estar
+                                atento (a) aos prazos de destinação de recursos de cada empresas patrocinadoras.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="panel">
+                        <h4 class="panel-title">
+                            <a data-toggle="collapse" data-parent="#accordion" href="#collapse7">Posso cadastrar um
+                                projeto inscrito em leis estaduais/municipais?</a>
+                        </h4>
+                        <div id="collapse7" class="panel-collapse collapse">
+                            <p>Sim. Podem ser cadastrados projetos inscritos nas leis de incentivo estaduais e
+                                municipais. </p>
+                        </div>
+                    </div>
+                    <div class="panel">
+                        <h4 class="panel-title">
+                            <a data-toggle="collapse" data-parent="#accordion" href="#collapse8">Quais são os
+                                percentuais de remuneração para a consultoria?</a>
+                        </h4>
+                        <div id="collapse8" class="panel-collapse collapse">
+                            <p>De acordo com as respectivas legislações, segue tabela abaixo com os percentuais de
+                                remuneração:
+                            </p>
+                            <img src="${path}/images/cases-img/tabela-fiscal.png" alt="tabela fiscal">
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+    </div>
+</section>
+<%--PERGUNTAS FREQUENTES--%>
 
+<%--CAROSSEL DE PROJETOS--%>
 
-
-
-        <!-- <hr id="mark-dash"> -->
-
-        <!-- <div class="row">
-                <div class="col-xs-12 col-sm-6 col-sm-offset-3 text-center">
-                    <div class="page-title">
-                        <h2 style="margin:50px;">Empresas</h2>
-                        <p>Lorem issue dolor sit amet, consectetur adipisicing elit. Velit voluptates, temporibus at,
-                            facere harum fugiat!</p>
-                    </div>
+<section class="section-padding bg-default client-area" id="client-page">
+    <div class="container">
+        <div class="row justify-content-end">
+            <div class="col-xs-12 col-sm-6 col-sm-offset-3 text-center">
+                <div class="page-title">
+                    <h2>Captar recursos é transformar sonhos em realidade.</h2>
                 </div>
             </div>
-            <div class="row">
-                <div class="col-xs-12 col-sm-6 col-md-3">
-                    <div class="box">
-                        <div class="box-icon">
-                            <img src="${path}/main/images/portfolio-icon-1.png" alt="">
-                        </div>
-                        <h3>Seleção</h3>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cumque quas nulla est adipisci,</p>
-                    </div>
-                </div>
-                <div class="col-xs-12 col-sm-6 col-md-3">
-                    <div class="box">
-                        <div class="box-icon">
-                            <img src="${path}/main/images/portfolio-icon-2.png" alt="">
-                        </div>
-                        <h3>Relatorios</h3>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cumque quas nulla est adipisci,</p>
-                    </div>
-                </div>
-                <div class="col-xs-12 col-sm-6 col-md-3">
-                    <div class="box">
-                        <div class="box-icon">
-                            <img src="${path}/main/images/portfolio-icon-3.png" alt="">
-                        </div>
-                        <h3>Gestão</h3>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cumque quas nulla est adipisci,</p>
-                    </div>
-                </div>
-                <div class="col-xs-12 col-sm-6 col-md-3">
-                    <div class="box">
-                        <div class="box-icon">
-                            <img src="${path}/main/images/portfolio-icon-3.png" alt="">
-                        </div>
-                        <h3>Marketing</h3>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cumque quas nulla est adipisci,</p>
-                    </div>
-                </div> -->
         </div>
-    </section>
-
-
-    <section class="angle-bg sky-bg section-padding" id="plataforma">
-        <div class="container">
-            <div class="row">
-                <div class="col-xs-12">
-                    <div id="caption_slide" class="carousel slide caption-slider" data-ride="carousel">
-                        <div class="carousel-inner" role="listbox">
-                            <div class="item active row">
-                                <div class="v-center">
-                                    <div class="col-xs-12 col-md-6">
-                                        <div class="caption-title" data-animation="animated fadeInUp">
-                                            <h2>Conheça a platarfoma</h2>
-                                        </div>
-                                        <div class="caption-desc" data-animation="animated fadeInUp">
-                                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                                                tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
-                                                veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-                                                commodo consequat. Duis aute</p>
-                                        </div>
-                                        <div class="caption-button" data-animation="animated fadeInUp">
-                                            <a href="#" class="button">Cadastre-se</a>
-                                        </div>
-                                    </div>
-                                    <div class="col-xs-6 col-md-3">
-                                        <div class="caption-photo one" data-animation="animated fadeInRight">
-                                            <img src="${path}/main/images/screen-1.jpg" alt="">
-                                        </div>
-                                    </div>
-                                    <div class="col-xs-6 col-md-3">
-                                        <div class="caption-photo two" data-animation="animated fadeInRight">
-                                            <img src="${path}/main/images/screen-2.jpg" alt="">
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="item row">
-                                <div class="v-center">
-                                    <div class="col-xs-12 col-md-6">
-                                        <div class="caption-title" data-animation="animated fadeInUp">
-                                            <h2>Facil de usar</h2>
-                                        </div>
-                                        <div class="caption-desc" data-animation="animated fadeInUp">
-                                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                                                tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
-                                                veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-                                                commodo consequat. Duis aute</p>
-                                        </div>
-                                        <div class="caption-button" data-animation="animated fadeInUp">
-                                            <a href="#" class="button">Crie sua conta</a>
-                                        </div>
-                                    </div>
-                                    <div class="col-xs-6 col-md-3">
-                                        <div class="caption-photo one" data-animation="animated fadeInRight">
-                                            <img src="${path}/main/images/screen-3.jpg" alt="">
-                                        </div>
-                                    </div>
-                                    <div class="col-xs-6 col-md-3">
-                                        <div class="caption-photo two" data-animation="animated fadeInRight">
-                                            <img src="${path}/main/images/screen-4.jpg" alt="">
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="item row">
-                                <div class="v-center">
-                                    <div class="col-xs-12 col-md-6">
-                                        <div class="caption-title" data-animation="animated fadeInUp">
-                                            <h2>Gerencia suas atividades</h2>
-                                        </div>
-                                        <div class="caption-desc" data-animation="animated fadeInUp">
-                                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                                                tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
-                                                veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-                                                commodo consequat. Duis aute</p>
-                                        </div>
-                                        <div class="caption-button" data-animation="animated fadeInUp">
-                                            <a href="#" class="button">Acesse o painel</a>
-                                        </div>
-                                    </div>
-                                    <div class="col-xs-6 col-md-3">
-                                        <div class="caption-photo one" data-animation="animated fadeInRight">
-                                            <img src="${path}/main/images/screen-7.jpg" alt="">
-                                        </div>
-                                    </div>
-                                    <div class="col-xs-6 col-md-3">
-                                        <div class="caption-photo two" data-animation="animated fadeInRight">
-                                            <img src="${path}/main/images/screen-2.jpg" alt="">
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="item row">
-                                <div class="v-center">
-                                    <div class="col-xs-12 col-md-6">
-                                        <div class="caption-title" data-animation="animated fadeInUp">
-                                            <h2>Deseja fazer um solicitação?</h2>
-                                        </div>
-                                        <div class="caption-desc" data-animation="animated fadeInUp">
-                                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                                                tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
-                                                veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-                                                commodo consequat. Duis aute</p>
-                                        </div>
-                                        <div class="caption-button" data-animation="animated fadeInUp">
-                                            <a href="#" class="button">Com um click</a>
-                                        </div>
-                                    </div>
-                                    <div class="col-xs-6 col-md-3">
-                                        <div class="caption-photo one" data-animation="animated fadeInRight">
-                                            <img src="${path}/main/images/screen-3.jpg" alt="">
-                                        </div>
-                                    </div>
-                                    <div class="col-xs-6 col-md-3">
-                                        <div class="caption-photo two" data-animation="animated fadeInRight">
-                                            <img src="${path}/main/images/screen-4.jpg" alt="">
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+        <div class="row text-center">
+            <div class="col-xs-12">
+                <div class="clients">
+                    <div class="item">
+                        <img src="${path}/main/images/cases-img/projeto1.jpg" alt="">
+                        <div>
+                            <p class="lead">1° Prêmio de Design Tomie Ohtake
+                                Instituto Tomie Ohtake
+                            </p>
                         </div>
-                        <!-- Indicators -->
-                        <ol class="carousel-indicators caption-indector">
-                            <li data-target="#caption_slide" data-slide-to="0" class="active">
-                                <strong>Cadastro </strong>consectetur adipisicing elit.
-                            </li>
-                            <li data-target="#caption_slide" data-slide-to="1">
-                                <strong>Facil de usar </strong>consectetur adipisicing elit.
-                            </li>
-                            <li data-target="#caption_slide" data-slide-to="2">
-                                <strong>Painel</strong>consectetur adipisicing elit.
-                            </li>
-                            <li data-target="#caption_slide" data-slide-to="3">
-                                <strong>Peça uma Doação </strong>consectetur adipisicing elit.
-                            </li>
-                        </ol>
+                    </div>
+                    <div class="item">
+                        <img src="${path}/main/images/cases-img/projeto2.jpg" alt="">
+                        <div>
+                            <p class="lead">Novos Rumos
+                                CEAP - Centro Educacional Assistencial Profissionalizante
+
+                            </p>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <img src="${path}/main/images/cases-img/projeto3.jpg" alt="">
+                        <div>
+                            <p class="lead">Cine Autorama Brazucah
+                            </p>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <img src="${path}/main/images/cases-img/projeto4.jpg" alt="">
+                        <div>
+                            <p class="lead">Doutores Cidadãos Canto Cidadão
+
+                            </p>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <img src="${path}/main/images/cases-img/projeto5.jpg" alt="">
+                        <div>
+                            <p class="lead">Primeiro Emprego
+                                AFESU - Associação Feminina de Estudos Sociais e Universitários
+                            </p>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <img src="${path}/main/images/cases-img/projeto6.jpg" alt="">
+                        <div>
+                            <p class="lead">Programa Construcom
+                                ITEVA - Instituto Tecnológico e Vocacional Avançado
+
+                            </p>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <img src="${path}/main/images/cases-img/projeto7.jpg" alt="">
+                        <div>
+                            <p class="lead">Equipes de Basquete em Cadeiras de Rodas
+                                ADD - Associação Desportiva para Deficiente
+
+
+                            </p>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <img src="${path}/main/images/cases-img/projeto8.jpg" alt="">
+                        <div>
+                            <p class="lead">Fortaleza Cidade Amiga do Idoso
+                                NUPROCE - Núcleo de Produções Culturais e Esportivas
+
+                            </p>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </section>
+    </div>
+</section>
 
 
-    <!-- <section class="price-area overlay section-padding" id="price-page">
+<footer class="footer-area relative sky-bg" id="contact-page">
+    <div class="absolute "></div>
+    <div class="footer-top">
         <div class="container">
             <div class="row">
                 <div class="col-xs-12 col-sm-6 col-sm-offset-3 text-center">
                     <div class="page-title">
-                        <h2>Afortable Price</h2>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Velit voluptates, temporibus at,
-                            facere harum fugiat!</p>
+                        <h2 style="color:white">Contate-nos</h2>
+                        <p style="color:white">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Velit
+                            voluptates, temporibus
+                            at, facere harum fugiat!</p>
                     </div>
                 </div>
             </div>
             <div class="row">
-                <div class="col-xs-12 col-sm-4">
-                    <div class="price-table">
-                        <h3 class="text-uppercase price-title">Basic</h3>
-                        <hr>
-                        <ul class="list-unstyled">
-                            <li><strong class="amount">$ <span class="big">20</span></strong>/Month</li>
-                            <li>100 MB Disk Space</li>
-                            <li>2 Subdomains</li>
-                            <li>5 Email Accounts</li>
-                            <li>Webmail Support</li>
-                            <li>Customer Support 24/7</li>
-                        </ul>
-                        <hr>
-                        <a href="#" class="button">Purchase</a>
-                    </div>
+                <div class="col-xs-12 col-md-4">
+                    <address class="side-icon-boxes">
+                        <div class="side-icon-box">
+                            <div class="side-icon">
+                                <img src="${path}/main/images/location-arrow.png" alt="">
+                            </div>
+                            <p><strong>Endereço</strong> Rua vicente lotti<br/>São Paulo - SP</p>
+                        </div>
+                        <div class="side-icon-box">
+                            <div class="side-icon">
+                                <img src="${path}/main/images/phone-arrow.png" alt="">
+                            </div>
+                            <p><strong>Telefone </strong>
+                                <a href="callto:8801812726495">(11)2053-7866</a> <br/>
+                                <a href="callto:8801687420471">(11)9999-9999</a>
+                            </p>
+                        </div>
+                        <div class="side-icon-box">
+                            <div class="side-icon">
+                                <img src="${path}/main/images/mail-arrow.png" alt="">
+                            </div>
+                            <p><strong>E-mail: </strong>
+                                <a href="#">yabaconsultoria@contato.com.br</a> <br/>
+                            </p>
+                        </div>
+                    </address>
                 </div>
-                <div class="col-xs-12 col-sm-4">
-                    <div class="price-table active">
-                        <span class="price-info"><span class="ti-crown"></span></span>
-                        <h3 class="text-uppercase price-title">STABDARD</h3>
-                        <hr>
-                        <ul class="list-unstyled">
-                            <li><strong class="amount">$ <span class="big">39</span></strong>/Month</li>
-                            <li>100 MB Disk Space</li>
-                            <li>2 Subdomains</li>
-                            <li>5 Email Accounts</li>
-                            <li>Webmail Support</li>
-                            <li>Customer Support 24/7</li>
-                        </ul>
-                        <hr>
-                        <a href="#" class="button">Purchase</a>
-                    </div>
-                </div>
-                <div class="col-xs-12 col-sm-4">
-                    <div class="price-table">
-                        <h3 class="text-uppercase price-title">UNLIMITED</h3>
-                        <hr>
-                        <ul class="list-unstyled">
-                            <li><strong class="amount">$ <span class="big">59</span></strong>/Month</li>
-                            <li>100 MB Disk Space</li>
-                            <li>2 Subdomains</li>
-                            <li>5 Email Accounts</li>
-                            <li>Webmail Support</li>
-                            <li>Customer Support 24/7</li>
-                        </ul>
-                        <hr>
-                        <a href="#" class="button">Purchase</a>
-                    </div>
+                <div class="col-xs-12 col-md-8">
+                    <form action="process.php" id="contact-form" method="post" class="contact-form">
+                        <div class="form-double">
+                            <input type="text" id="form-name" name="form-name" placeholder="Nome"
+                                   class="form-control" required="required">
+                            <input type="email" id="form-email" name="form-email" class="form-control"
+                                   placeholder="Email" required="required">
+                        </div>
+                        <input type="text" id="form-subject" name="form-subject" class="form-control"
+                               placeholder="Assunto ">
+                        <textarea name="message" id="form-message" name="form-message" rows="5" class="form-control"
+                                  placeholder="Escreve sua mensagem" required="required"></textarea>
+                        <button type="sibmit" class="button">Enviar</button>
+                    </form>
                 </div>
             </div>
         </div>
-    </section> -->
-
-
-
-    <!-- <section class="section-padding gray-bg" id="team-page">
+    </div>
+    <div class="footer-middle">
         <div class="container">
             <div class="row">
-                <div class="col-xs-12 col-sm-6 col-sm-offset-3 text-center">
-                    <div class="page-title">
-                        <h2>Special team</h2>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Velit voluptates, temporibus at,
-                            facere harum fugiat!</p>
-                    </div>
+                <div class="col-xs-12 col-sm-6 pull-right">
+                    <ul class="social-menu text-right x-left">
+                        <li><a href="#"><i class="ti-facebook"></i></a></li>
+                        <li><a href="#"><i class="ti-twitter"></i></a></li>
+
+                        <li><a href="#"><i class="ti-linkedin"></i></a></li>
+                    </ul>
                 </div>
-            </div>
-            <div class="row">
-                <div class="col-xs-12 col-sm-6 col-md-3">
-                    <div class="single-team">
-                        <div class="team-photo">
-                            <img src="${path}/main/images/team-section-1.png" alt="">
-                        </div>
-                        <h4>JEMY SEDONCE</h4>
-                        <h6>Co. Founder</h6>
-                        <ul class="social-menu">
-                            <li><a href="#"><i class="ti-facebook"></i></a></li>
-                            <li><a href="#"><i class="ti-twitter"></i></a></li>
-                            <li><a href="#"><i class="ti-linkedin"></i></a></li>
-                            <li><a href="#"><i class="ti-pinterest"></i></a></li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="col-xs-12 col-sm-6 col-md-3">
-                    <div class="single-team">
-                        <div class="team-photo">
-                            <img src="${path}/main/images/team-section-2.png" alt="">
-                        </div>
-                        <h4>DEBORAH BROWN</h4>
-                        <h6>UX Designer</h6>
-                        <ul class="social-menu">
-                            <li><a href="#"><i class="ti-facebook"></i></a></li>
-                            <li><a href="#"><i class="ti-twitter"></i></a></li>
-                            <li><a href="#"><i class="ti-linkedin"></i></a></li>
-                            <li><a href="#"><i class="ti-pinterest"></i></a></li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="col-xs-12 col-sm-6 col-md-3">
-                    <div class="single-team">
-                        <div class="team-photo">
-                            <img src="${path}/main/images/team-section-3.png" alt="">
-                        </div>
-                        <h4>HARRY BANKS</h4>
-                        <h6>Founder</h6>
-                        <ul class="social-menu">
-                            <li><a href="#"><i class="ti-facebook"></i></a></li>
-                            <li><a href="#"><i class="ti-twitter"></i></a></li>
-                            <li><a href="#"><i class="ti-linkedin"></i></a></li>
-                            <li><a href="#"><i class="ti-pinterest"></i></a></li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="col-xs-12 col-sm-6 col-md-3">
-                    <div class="single-team">
-                        <div class="team-photo">
-                            <img src="${path}/main/images/team-section-4.png" alt="">
-                        </div>
-                        <h4>VICTORIA CLARK</h4>
-                        <h6>Creative Director</h6>
-                        <ul class="social-menu">
-                            <li><a href="#"><i class="ti-facebook"></i></a></li>
-                            <li><a href="#"><i class="ti-twitter"></i></a></li>
-                            <li><a href="#"><i class="ti-linkedin"></i></a></li>
-                            <li><a href="#"><i class="ti-pinterest"></i></a></li>
-                        </ul>
-                    </div>
+                <div class="col-xs-12 col-sm-6">
+                    <p>Acompanhe a gente nas redes sociais</p>
                 </div>
             </div>
         </div>
-    </section> -->
-
-
-
-
-    <!-- <section class="testimonial-area section-padding gray-bg overlay">
+    </div>
+    <div class="footer-bottom">
         <div class="container">
             <div class="row">
-                <div class="col-xs-12 col-sm-6 col-sm-offset-3 text-center">
-                    <div class="page-title">
-                        <h2>Client says</h2>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Velit voluptates, temporibus at,
-                            facere harum fugiat!</p>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-xs-12 col-sm-10 col-sm-offset-1 col-md-8 col-md-offset-2">
-                    <div class="testimonials">
-                        <div class="testimonial">
-                            <div class="testimonial-photo">
-                                <img src="${path}/main/images/avatar-small-1.png" alt="">
-                            </div>
-                            <h3>AR Rahman</h3>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vel vero dolore officiis,
-                                velit id libero illum harum hic magni, quae repellendus adipisci possimus saepe nostrum
-                                doloribus repudiandae asperiores commodi voluptate.</p>
-                        </div>
-                        <div class="testimonial">
-                            <div class="testimonial-photo">
-                                <img src="${path}/main/images/avatar-small-2.png" alt="">
-                            </div>
-                            <h3>AR Rahman</h3>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vel vero dolore officiis,
-                                velit id libero illum harum hic magni, quae repellendus adipisci possimus saepe nostrum
-                                doloribus repudiandae asperiores commodi voluptate.</p>
-                        </div>
-                        <div class="testimonial">
-                            <div class="testimonial-photo">
-                                <img src="${path}/main/images/avatar-small-3.png" alt="">
-                            </div>
-                            <h3>AR Rahman</h3>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vel vero dolore officiis,
-                                velit id libero illum harum hic magni, quae repellendus adipisci possimus saepe nostrum
-                                doloribus repudiandae asperiores commodi voluptate.</p>
-                        </div>
-                        <div class="testimonial">
-                            <div class="testimonial-photo">
-                                <img src="${path}/main/images/avatar-small-4.png" alt="">
-                            </div>
-                            <h3>AR Rahman</h3>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vel vero dolore officiis,
-                                velit id libero illum harum hic magni, quae repellendus adipisci possimus saepe nostrum
-                                doloribus repudiandae asperiores commodi voluptate.</p>
-                        </div>
-                        <div class="testimonial">
-                            <div class="testimonial-photo">
-                                <img src="${path}/main/images/avatar-small-5.png" alt="">
-                            </div>
-                            <h3>AR Rahman</h3>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vel vero dolore officiis,
-                                velit id libero illum harum hic magni, quae repellendus adipisci possimus saepe nostrum
-                                doloribus repudiandae asperiores commodi voluptate.</p>
-                        </div>
-                        <div class="testimonial">
-                            <div class="testimonial-photo">
-                                <img src="${path}/main/images/avatar-small-6.png" alt="">
-                            </div>
-                            <h3>AR Rahman</h3>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vel vero dolore officiis,
-                                velit id libero illum harum hic magni, quae repellendus adipisci possimus saepe nostrum
-                                doloribus repudiandae asperiores commodi voluptate.</p>
-                        </div>
-                    </div>
+                <div class="col-xs-12 text-center">
+                    <p>&copy;Copyright 2018 Todos os direitos reservados Yaba Consultoria</p>
                 </div>
             </div>
         </div>
-    </section> -->
+    </div>
+</footer>
+
+<script>
+    function typeWriter(elemento) {
+        const textoArray = elemento.innerHTML.split('');
+        elemento.innerHTML = '';
+        textoArray.forEach((letra, i) = > {
+            setTimeout(() =
+    >
+        elemento.innerHTML += letra, 100 * i
+    )
+        ;
+    })
+        ;
+    }
+
+    const titulo = document.querySelector('.h2');
+    typeWriter(titulo);
+</script>
 
 
-
-
-
-
-    <section class="gray-bg section-padding" id="faq-page">
-        <div class="container">
-            <div class="row justify-content-end">
-                <div class="col-xs-12 col-sm-6 col-sm-offset-3 text-center">
-                    <div class="page-title">
-                        <h2>Perguntas Frequentes</h2>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Velit voluptates, temporibus at,
-                            facere harum fugiat!</p>
-                    </div>
-                </div>
-            </div>
-            <div class="row justify-content-start">
-                <div class="col-xs-12 col-sm-10 col-sm-offset-1 col-md-8 col-md-offset-2">
-                    <div class="panel-group" id="accordion">
-                        <div class="panel">
-                            <h4 class="panel-title">
-                                <a data-toggle="collapse" data-parent="#accordion" href="#collapse1"
-                                    aria-expanded="true">Sedeiusmod
-                                    tempor inccsetetur aliquatraiy?</a>
-                            </h4>
-                            <div id="collapse1" class="panel-collapse collapse in">
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmodas temporo
-                                    incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrd
-                                    exercitation ullamco laboris nisi ut aliquip ex comodo consequat. Duis aute dolor
-                                    in reprehenderit.</p>
-                            </div>
-                        </div>
-                        <div class="panel">
-                            <h4 class="panel-title">
-                                <a data-toggle="collapse" data-parent="#accordion" href="#collapse2">Tempor inccsetetur
-                                    aliquatraiy?</a>
-                            </h4>
-                            <div id="collapse2" class="panel-collapse collapse">
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmodas temporo
-                                    incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrd
-                                    exercitation ullamco laboris nisi ut aliquip ex comodo consequat. Duis aute dolor
-                                    in reprehenderit.</p>
-                            </div>
-                        </div>
-                        <div class="panel">
-                            <h4 class="panel-title">
-                                <a data-toggle="collapse" data-parent="#accordion" href="#collapse3">Lorem ipsum dolor
-                                    amet, consectetur adipisicing ?</a>
-                            </h4>
-                            <div id="collapse3" class="panel-collapse collapse">
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmodas temporo
-                                    incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrd
-                                    exercitation ullamco laboris nisi ut aliquip ex comodo consequat. Duis aute dolor
-                                    in reprehenderit.</p>
-                            </div>
-                        </div>
-                        <div class="panel">
-                            <h4 class="panel-title">
-                                <a data-toggle="collapse" data-parent="#accordion" href="#collapse4">Lorem ipsum dolor
-                                    amet, consectetur adipisicing ?</a>
-                            </h4>
-                            <div id="collapse4" class="panel-collapse collapse">
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmodas temporo
-                                    incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrd
-                                    exercitation ullamco laboris nisi ut aliquip ex comodo consequat. Duis aute dolor
-                                    in reprehenderit.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-
-
-
-
-
-
-
-    <section class="section-padding overlay client-area overlay" id="client-page">
-        <div class="container">
-            <div class="row text-center">
-                <div class="col-xs-12">
-                    <div class="clients">
-                        <div class="item">
-                            <img src="${path}/main/images/themeforest.gif" alt="">
-                        </div>
-                        <div class="item">
-                            <img src="${path}/main/images/coadcanyon.gif" alt="">
-                        </div>
-                        <div class="item">
-                            <img src="${path}/main/images/graphicriver.gif" alt="">
-                        </div>
-                        <div class="item">
-                            <img src="${path}/main/images/docean.gif" alt="">
-                        </div>
-                        <div class="item">
-                            <img src="${path}/main/images/audiojungle.gif" alt="">
-                        </div>
-                        <div class="item">
-                            <img src="${path}/main/images/actividen.gif" alt="">
-                        </div>
-                        <div class="item">
-                            <img src="${path}/main/images/photodone.gif" alt="">
-                        </div>
-                        <div class="item">
-                            <img src="${path}/main/images/videgub.gif" alt="">
-                        </div>
-                        <div class="item">
-                            <img src="${path}/main/images/themeforest.gif" alt="">
-                        </div>
-                        <div class="item">
-                            <img src="${path}/main/images/coadcanyon.gif" alt="">
-                        </div>
-                        <div class="item">
-                            <img src="${path}/main/images/graphicriver.gif" alt="">
-                        </div>
-                        <div class="item">
-                            <img src="${path}/main/images/docean.gif" alt="">
-                        </div>
-                        <div class="item">
-                            <img src="${path}/main/images/audiojungle.gif" alt="">
-                        </div>
-                        <div class="item">
-                            <img src="${path}/main/images/actividen.gif" alt="">
-                        </div>
-                        <div class="item">
-                            <img src="${path}/main/images/photodone.gif" alt="">
-                        </div>
-                        <div class="item">
-                            <img src="${path}/main/images/videgub.gif" alt="">
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- 
-    <section class="section-padding gray-bg" id="blog-page">
-        <div class="container">
-            <div class="row">
-                <div class="col-xs-12 col-sm-4">
-                    <div class="single-blog">
-                        <div class="blog-photo">
-                            <img src="${path}/main/images/small1.jpg" alt="">
-                        </div>
-                        <div class="blog-content">
-                            <h3><a href="#">Beautiful Place for your Great Journey</a></h3>
-                            <ul class="blog-meta">
-                                <li><span class="ti-user"></span> <a href="#">Admin</a></li>
-                                <li><span class="ti-calendar"></span> <a href="#">Feb 01, 2017</a></li>
-                            </ul>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odit nemo eaque expedita
-                                aliquid dolorem repellat perferendis, facilis aut fugit, impedit.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xs-12 col-sm-4">
-                    <div class="single-blog">
-                        <div class="blog-photo">
-                            <img src="${path}/main/images/small2.jpg" alt="">
-                        </div>
-                        <div class="blog-content">
-                            <h3><a href="#">Beautiful Place for your Great Journey</a></h3>
-                            <ul class="blog-meta">
-                                <li><span class="ti-user"></span> <a href="#">Admin</a></li>
-                                <li><span class="ti-calendar"></span> <a href="#">Feb 01, 2017</a></li>
-                            </ul>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odit nemo eaque expedita
-                                aliquid dolorem repellat perferendis, facilis aut fugit, impedit.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xs-12 col-sm-4">
-                    <div class="single-blog">
-                        <div class="blog-photo">
-                            <img src="${path}/main/images/small3.jpg" alt="">
-                        </div>
-                        <div class="blog-content">
-                            <h3><a href="#">Beautiful Place for your Great Journey</a></h3>
-                            <ul class="blog-meta">
-                                <li><span class="ti-user"></span> <a href="#">Admin</a></li>
-                                <li><span class="ti-calendar"></span> <a href="#">Feb 01, 2017</a></li>
-                            </ul>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odit nemo eaque expedita
-                                aliquid dolorem repellat perferendis, facilis aut fugit, impedit.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section> -->
-
-
-
-
-
-    <footer class="footer-area relative sky-bg" id="contact-page">
-        <div class="absolute "></div>
-        <div class="footer-top">
-            <div class="container">
-                <div class="row">
-                    <div class="col-xs-12 col-sm-6 col-sm-offset-3 text-center">
-                        <div class="page-title">
-                            <h2 style="color:white">Contate-nos</h2>
-                            <p style="color:white">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Velit
-                                voluptates, temporibus
-                                at, facere harum fugiat!</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-xs-12 col-md-4">
-                        <address class="side-icon-boxes">
-                            <div class="side-icon-box">
-                                <div class="side-icon">
-                                    <img src="${path}/main/images/location-arrow.png" alt="">
-                                </div>
-                                <p><strong>Endereço</strong> Rua vicente lotti<br />São Paulo - SP</p>
-                            </div>
-                            <div class="side-icon-box">
-                                <div class="side-icon">
-                                    <img src="${path}/main/images/phone-arrow.png" alt="">
-                                </div>
-                                <p><strong>Telefone </strong>
-                                    <a href="callto:8801812726495">(11)2053-7866</a> <br />
-                                    <a href="callto:8801687420471">(11)9999-9999</a>
-                                </p>
-                            </div>
-                            <div class="side-icon-box">
-                                <div class="side-icon">
-                                    <img src="${path}/main/images/mail-arrow.png" alt="">
-                                </div>
-                                <p><strong>E-mail: </strong>
-                                    <a href="#">yabaconsultoria@contato.com.br</a> <br />
-                                </p>
-                            </div>
-                        </address>
-                    </div>
-                    <div class="col-xs-12 col-md-8">
-                        <form action="process.php" id="contact-form" method="post" class="contact-form">
-                            <div class="form-double">
-                                <input type="text" id="form-name" name="form-name" placeholder="Nome"
-                                    class="form-control" required="required">
-                                <input type="email" id="form-email" name="form-email" class="form-control"
-                                    placeholder="Email" required="required">
-                            </div>
-                            <input type="text" id="form-subject" name="form-subject" class="form-control"
-                                placeholder="Assunto ">
-                            <textarea name="message" id="form-message" name="form-message" rows="5" class="form-control"
-                                placeholder="Escreve sua mensagem" required="required"></textarea>
-                            <button type="sibmit" class="button">Enviar</button>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="footer-middle">
-            <div class="container">
-                <div class="row">
-                    <div class="col-xs-12 col-sm-6 pull-right">
-                        <ul class="social-menu text-right x-left">
-                            <li><a href="#"><i class="ti-facebook"></i></a></li>
-                            <li><a href="#"><i class="ti-twitter"></i></a></li>
-
-                            <li><a href="#"><i class="ti-linkedin"></i></a></li>
-                        </ul>
-                    </div>
-                    <div class="col-xs-12 col-sm-6">
-                        <p>Acompanhe a gente nas redes sociais</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="footer-bottom">
-            <div class="container">
-                <div class="row">
-                    <div class="col-xs-12 text-center">
-                        <p>&copy;Copyright 2018 Todos os direitos reservados Yaba Consultoria</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </footer>
-
-    <script>
-        function typeWriter(elemento) {
-            const textoArray = elemento.innerHTML.split('');
-            elemento.innerHTML = '';
-            textoArray.forEach((letra, i) => {
-                setTimeout(() => elemento.innerHTML += letra, 100 * i);
-            });
-        }
-
-        // Se estiver tendo problemas com performance, utilize o FOR loop como abaixo no local do forEach
-        // function typeWriter(elemento) {
-        //   const textoArray = elemento.innerHTML.split('');
-        //   elemento.innerHTML = '';
-        //   for(let i = 0; i < textoArray.length; i++) {
-        //     setTimeout(() => elemento.innerHTML += textoArray[i], 75 * i);
-        //   }
-        // }
-
-        const titulo = document.querySelector('.h2');
-        typeWriter(titulo);
-
-
-
-    </script>
-
-
-
-    <!--Vendor-JS-->
-    <script src="${path}/main/js/vendor/jquery-1.12.4.min.js"></script>
-    <script src="${path}/main/js/vendor/bootstrap.min.js"></script>
-    <!--Plugin-JS-->
-    <script src="${path}/main/js/owl.carousel.min.js"></script>
-    <script src="${path}/main/js/contact-form.js"></script>
-    <script src="${path}/main/js/jquery.parallax-1.1.3.js"></script>
-    <script src="${path}/main/js/scrollUp.min.js"></script>
-    <script src="${path}/main/js/magnific-popup.min.js"></script>
-    <script src="${path}/main/js/wow.min.js"></script>
-    <!-- WOW-JS -->
-    <!--Main-active-JS-->
-    <script src="${path}/main/js/script.js"></script>
+<!--Vendor-JS-->
+<script src="${path}/main/js/vendor/jquery-1.12.4.min.js"></script>
+<script src="${path}/main/js/vendor/bootstrap.min.js"></script>
+<!--Plugin-JS-->
+<script src="${path}/main/js/owl.carousel.min.js"></script>
+<script src="${path}/main/js/contact-form.js"></script>
+<script src="${path}/main/js/jquery.parallax-1.1.3.js"></script>
+<script src="${path}/main/js/scrollUp.min.js"></script>
+<script src="${path}/main/js/magnific-popup.min.js"></script>
+<script src="${path}/main/js/wow.min.js"></script>
+<!-- WOW-JS -->
+<!--Main-active-JS-->
+<script src="${path}/main/js/script.js"></script>
 </body>
 
 </html>
