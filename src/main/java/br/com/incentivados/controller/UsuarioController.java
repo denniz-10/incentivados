@@ -1,14 +1,20 @@
 package br.com.incentivados.controller;
 
-import java.util.Date;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Optional;
 
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
+import br.com.incentivados.enumerated.TipoUsuario;
 import br.com.incentivados.model.Usuario;
 import br.com.incentivados.service.UsuarioService;
 
@@ -20,37 +26,79 @@ public class UsuarioController {
 
 	private String path;
 
-	@PostMapping("/login")
-	public String postLogin(String cpf, String senha, HttpServletRequest request, Model model) {
+	@GetMapping("/usuarios/cadastro")
+	public String getCadastrar(HttpServletRequest request, Model model) {
+
+		// Seta o path da requisição
+		path = request.getContextPath();
+		model.addAttribute("path", path);
+		
+		System.out.println("URL: " + request.getServletPath());
+
+		TipoUsuario[] tiposUsuario = TipoUsuario.values();
+		model.addAttribute("tiposUsuario", tiposUsuario);
+
+		return "main/usuario/cadastro";
+	}
+
+	@PostMapping("/usuarios/cadastro")
+	public String postCadastrar(Usuario usuario, HttpServletRequest request, Model model) {
 
 		// Seta o path da requisição
 		path = request.getContextPath();
 		model.addAttribute("path", path);
 
-		Usuario usuario = new Usuario();
+		try {
+			usuarioService.save(usuario);
+			model.addAttribute("usuarioCadastrado", true);
+			return "usuario/cadastro-efetuado-com-sucesso";
+		} catch (Exception e) {
+			System.out.println(e);
+			return "main/usuario/cadastro-sem-sucesso";
+		}
+	}	
+
+	@GetMapping("/usuarios/{id}")
+	public String getPerfilById(@PathVariable Long id, HttpServletRequest request, Model model) {
+
+		// Seta o path da requisição
+		path = request.getContextPath();
+		model.addAttribute("path", path);
 
 		try {
-			/*
-			 * Verifica a existencia do usuário no banco de dados e carrega os dados caso
-			 * exista. Senão exibe uma mensagem de erro
-			 */
-			if (usuarioService.exists(cpf, senha)) {
-				usuario = usuarioService.login(cpf);
-				model.addAttribute("loginPermitido", true);
-				model.addAttribute("usuario", usuario);
-				return "painel/index";
-			} else {
-				model.addAttribute("loginNegado", true);
-				return "home/login";
-			}
+			Optional<Usuario> usuario = usuarioService.findById(id);
+			model.addAttribute("usuario", usuario.get());
 		} catch (Exception e) {
-			// Exibe o erro caso não obitiver sucesso.
-			System.out.println(e);
-			model.addAttribute("e", e);
-			model.addAttribute("dataAtual", new Date());
-			return "erro/login-505.";
+			// TODO: handle exception
 		}
 
+		return "usuario/perfil";
+	}
+
+	@GetMapping("/usuarios")
+	public String getListar(@RequestParam(required = false) String n, HttpServletRequest request, Model model) {
+
+		// Seta o path da requisição
+		path = request.getContextPath();
+		model.addAttribute("path", path);
+
+		List<Usuario> usuarios = new ArrayList<>();
+
+		try {
+			// Verifica se possui parâmetro de busca
+			if (n.equals("")) {
+				usuarios = usuarioService.findAll();
+			} else {
+				usuarios = usuarioService.findByNomeContains(n);
+			}
+
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
+
+		model.addAttribute("usuarios", usuarios);
+
+		return "main/usuario/listar";
 	}
 
 }

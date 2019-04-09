@@ -2,6 +2,7 @@ package br.com.incentivados.service;
 
 import java.util.Date;
 import java.util.List;
+import java.util.Optional;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -25,20 +26,33 @@ public class EmpresaService {
 		empresa.setDataCadastro(new Date());
 		empresa.setUsuario(usuario);
 
-		// Upload do logo
-		empresa.getDocumentosEmpresa()
-				.setPathLogo(upload(request, empresa.getDocumentosEmpresa().getLogo(), "logo." +empresa.getDocumentosEmpresa().getLogo().getOriginalFilename().split("\\.")[1],
-						"documentos/empresa/" + empresa.getNomeFantasia()));
+		//É passando para o setPath o retorno da url(String) onde foi salvo o documento.		
+		empresa.getDocumentosEmpresa().getLogo()
+				.setPath(upload(request, empresa.getDocumentosEmpresa().getLogo().getFile(), "logo."
+						+ empresa.getDocumentosEmpresa().getLogo().getFile().getOriginalFilename().split("\\.")[1],
+						"documentos/empresas/" + empresa.getNomeFantasia()));
 
+		return empresaRepository.save(empresa);
+	}
+	
+	public Empresa update(Empresa empresa) {
 		return empresaRepository.save(empresa);
 	}
 
 	public boolean existsbyCnpj(String cnpj) {
 		return empresaRepository.existsByCnpj(cnpj);
 	}
+	
+	public Optional<Empresa> findById(Long id) {
+		return empresaRepository.findById(id);
+	}
 
-	public Empresa findByCnpj(String cnpj) {
+	public Optional<Empresa> findByCnpj(String cnpj) {
 		return empresaRepository.findByCnpj(cnpj);
+	}
+	
+	public Optional<Empresa> findByNomeFantasia(String nomeFantasia) {
+		return empresaRepository.findByNomeFantasia(nomeFantasia);
 	}
 
 	public String upload(HttpServletRequest request, MultipartFile arquivo, String nomeArquivo, String url) {
@@ -48,8 +62,8 @@ public class EmpresaService {
 	public List<Empresa> findAll() {
 		return empresaRepository.findAll();
 	}
-	
-	public List<Empresa> findByNomeFantasiaContains(String nomeFantasia){
+
+	public List<Empresa> findByNomeFantasiaContains(String nomeFantasia) {
 		return empresaRepository.findByNomeFantasiaContains(nomeFantasia);
 	}
 

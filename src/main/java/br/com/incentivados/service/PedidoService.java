@@ -1,5 +1,9 @@
 package br.com.incentivados.service;
 
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
@@ -9,6 +13,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
+import br.com.incentivados.enumerated.StatusPedido;
 import br.com.incentivados.model.Arquivo;
 import br.com.incentivados.model.Empresa;
 import br.com.incentivados.model.Entidade;
@@ -33,10 +38,10 @@ public class PedidoService {
 		pedido.setUsuario(usuario);
 		pedido.setAnalista(analista);
 		pedido.setEmpresa(empresa);
-		pedido.setEntidade(entidade);
+		pedido.setEntidade(entidade);		
 
 		pedido.getDocumentosPedido().getCartaOficio()
-				.setPath(upload(request, cartaOficio.getFile(), "Carta Ofício -" + entidade.getNomeFantasia() + "."
+				.setPath(upload(request, cartaOficio.getFile(), "carta-oficio-" + DateTimeFormatter.ofPattern("ddMMuuuuHHmmss").format(LocalDateTime.now()) + "."
 						+ cartaOficio.getFile().getOriginalFilename().split("\\.")[1], path));
 
 		return pedidoRepository.save(pedido);
@@ -55,6 +60,16 @@ public class PedidoService {
 	// Serviço de buscar PEDIDO pelo USUÁRIO
 	public List<Pedido> findByUsuario(Usuario usuario) {
 		return pedidoRepository.findByUsuario(usuario);
+	}
+
+	// Serviço que contabiliza todos os PEDIDOS
+	public Long count() {
+		return pedidoRepository.count();
+	}
+
+	// Serviço que contabiliza todos os PEDIDOS por STATUS
+	public Long countByStatus(StatusPedido status) {
+		return pedidoRepository.countByStatus(status);
 	}
 
 	// Serviço que contabiliza todos os PEDIDOS por USUÁRIO

@@ -12,6 +12,7 @@ import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 import java.util.Date;
+import java.util.List;
 
 @ToString
 @Setter
@@ -54,12 +55,22 @@ public class Usuario implements Serializable {
 	@NotNull(message = "Senha não pode ser nula.")
 	@Length(min = 6, message = "Senha deve conter no mínimo 6 caracteres")
 	private String senha;
+	
+	@OneToMany(fetch = FetchType.LAZY, orphanRemoval = true)
+	private List<Pedido> pedidos;
 
 	@Enumerated(EnumType.ORDINAL)
 	@Column(name = "tipo_usuario")
 	private TipoUsuario tipoUsuario;
 
-	@OneToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+	@OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
 	@JoinColumn(name = "endereco_id")
 	private Endereco endereco;
+
+	public Usuario() {
+		super();
+		this.dataCadastro = new Date();
+	}
+	
+	
 }

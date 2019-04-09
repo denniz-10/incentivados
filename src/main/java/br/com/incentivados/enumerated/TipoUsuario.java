@@ -5,9 +5,10 @@ import lombok.Getter;
 @Getter
 public enum TipoUsuario {
 
-    COMUM(0, "Comum"),
+    ENTIDADE(0, "Entidade"),
     EMPRESA(1, "Empresa"),
-    ADMIN(2, "Admin");
+    ANALISTA(2, "Analista"),
+    ADMIN(3, "Administrador");
 
     private int id;
     private String descricao;

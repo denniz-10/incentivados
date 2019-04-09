@@ -2,6 +2,7 @@ package br.com.incentivados.model;
 
 import java.io.Serializable;
 import java.util.Date;
+import java.util.List;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -11,6 +12,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
@@ -47,7 +50,6 @@ public class Empresa implements Serializable {
 	@Column(name = "razao_social")
 	private String razaoSocial;
 
-	@Column(unique = true)
 	private String cnpj;
 
 	@JoinColumn(name = "usuario_id")
@@ -57,5 +59,13 @@ public class Empresa implements Serializable {
 	@JoinColumn(name = "documentos_empresa_id")
 	@OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
 	private DocumentosEmpresa documentosEmpresa;
+	
+	@ManyToMany(cascade = { CascadeType.ALL })
+    @JoinTable(
+        name = "empresa_has_analista", 
+        joinColumns = { @JoinColumn(name = "empresa_id") }, 
+        inverseJoinColumns = { @JoinColumn(name = "usuario_id") }
+    )	
+	private List<Usuario> analistas;
 	
 }

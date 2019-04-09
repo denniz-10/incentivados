@@ -75,7 +75,7 @@ public class PedidoController {
 			model.addAttribute("entidades", entidades);
 
 			return "painel/entidade/pedido/cadastro";
-			
+
 		} catch (Exception e) {
 			System.out.println(e);
 
@@ -113,10 +113,30 @@ public class PedidoController {
 			model.addAttribute("pedido", pedido);
 
 			return "painel/entidade/pedido/pedido-entidade-sucesso";
-			
+
 		} catch (Exception e) {
 			System.err.println(e);
-			return "painel/entidade/pedido/pedido-entidade-falha";			
+			return "painel/entidade/pedido/pedido-entidade-falha";
+		}
+	}
+
+	@GetMapping("/painel/pedidos")
+	public String getPedidos(HttpServletRequest request, Model model) {
+
+		// Seta o path da requisição
+		model.addAttribute("path", request.getContextPath());
+		// Seta o breadcrumb da página
+		model.addAttribute("breadcrumb", "Pedido " + " <i class='fas fa-angle-double-right'></i> " + " Lista");
+		
+		try {
+			List<Pedido> pedidos = new ArrayList<Pedido>();
+			pedidos = pedidoService.findAll();
+			model.addAttribute("pedidos", pedidos);
+			model.addAttribute("qtdPedidos", pedidoService.count());
+			return "painel/admin/pedido/lista";
+		} catch (Exception e) {
+			System.err.println(e);
+			return "";
 		}
 	}
 

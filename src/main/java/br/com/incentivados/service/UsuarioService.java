@@ -1,33 +1,59 @@
 package br.com.incentivados.service;
 
 import java.util.Date;
+import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import br.com.incentivados.repository.UsuarioRepository;
-import br.com.incentivados.enumerated.TipoUsuario;
 import br.com.incentivados.model.Usuario;
 
 @Service
 public class UsuarioService {
 
     @Autowired
-    private UsuarioRepository repository;
-
+    private UsuarioRepository usuarioRepository;
+   
     // Método para adicionar um novo usuário
-    public Usuario adicionar(Usuario usuario, TipoUsuario tipoUsuario) {
-        usuario.setDataCadastro(new Date());
-        usuario.setTipoUsuario(tipoUsuario);
-        return repository.save(usuario);
+    public Usuario save(Usuario usuario) {
+        return usuarioRepository.save(usuario);
     }
 
-    public boolean exists(String cpf, String senha){
-        return repository.existsByCpfAndSenha(cpf, senha);
+    public boolean existsByEmailAndSenha(String cpf, String senha){
+        return usuarioRepository.existsByEmailAndSenha(cpf, senha);
+    }
+    
+    public boolean existsByCpf(String cpf){
+        return usuarioRepository.existsByCpf(cpf);
+    }
+    
+    public boolean existsByEmail(String email){
+        return usuarioRepository.existsByEmail(email);
     }
 
-    public Usuario login(String cpf){
-        return repository.findByCpf(cpf);
+    public Usuario login(String email){
+    	Usuario usuario = usuarioRepository.findByEmail(email);
+    	ultimoAcesso(usuario);
+        return usuario;
+    }
+    
+    public Usuario ultimoAcesso(Usuario usuario) {
+    	usuario.setUltimoAcesso(new Date());
+    	return usuarioRepository.save(usuario);
+    }
+        
+    public Optional<Usuario> findById(Long id) {
+    	return usuarioRepository.findById(id);
+    }
+    
+    public List<Usuario> findAll(){
+    	return usuarioRepository.findAll();
+    }   
+    
+    public List<Usuario> findByNomeContains(String nome){
+    	return usuarioRepository.findByNomeContains(nome);
     }
 
 }

@@ -6,6 +6,7 @@ import java.util.Optional;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
+import br.com.incentivados.enumerated.StatusPedido;
 import br.com.incentivados.model.Pedido;
 import br.com.incentivados.model.Usuario;
 
@@ -18,5 +19,6 @@ public interface PedidoRepository extends JpaRepository<Pedido, Long>{
 	List<Pedido> findByUsuario(Usuario usuario);
 	
 	Long countByUsuario(Usuario usuario);
+	Long countByStatus(StatusPedido status);
 
 }

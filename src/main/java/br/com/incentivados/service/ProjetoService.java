@@ -67,11 +67,17 @@ public class ProjetoService {
 		return projetoRepository.findByUsuario(usuario);
 	}
 	
-	// Serviço que contabiliza os projetos de acordo com o USUÁRIO
+	// Serviço que contabiliza os PROJETOS
+	public Long count() {
+		return projetoRepository.count();
+	}
+	
+	// Serviço que contabiliza os PROJETOS de acordo com o USUÁRIO
 	public Long countByUsuario(Usuario usuario) {
 		return projetoRepository.countByUsuario(usuario);
 	}
 	
+	// Serviço que faz o upload de arquivos para o servidor
 	public String upload(HttpServletRequest request, MultipartFile arquivo, String nomeArquivo, String url) {
 		return FileUpload.upload(request, arquivo, nomeArquivo, url);
 	}
