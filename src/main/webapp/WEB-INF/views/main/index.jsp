@@ -26,6 +26,7 @@
     <link rel="stylesheet" href="${path}/main/css/style.css">
     <link rel="stylesheet" href="${path}/main/css/responsive.css">
     <link rel="stylesheet" hre=" animate.min.css">
+
     <script src="${path}/main/js/vendor/modernizr-2.8.3.min.js"></script>
 
     <!--[if lt IE 9]>
@@ -130,7 +131,7 @@
     </div>
 </div>
 
-<!--Mainmenu-area/-->
+<!--EFEITO DE ONDAS/-->
 <div id="flow">
     <span class="flow-1"></span>
     <span class="flow-2"></span>
@@ -138,7 +139,7 @@
 </div>
 
 <!--Header-area-->
-<header class="header-area overlay full-height relative v-center" id="home-page">
+<header class="header-area bg-default full-height relative v-center" id="home-page">
     <div class="absolute anlge-bg"></div>
     <div class="container">
         <div class="row v-center">
@@ -183,6 +184,7 @@
         </div>
     </div>
 </section>
+<%--QUEM SOMOS--%>
 
 
 <!--SERVIÇOS-->
@@ -287,7 +289,7 @@
 
 
 <%--PLATAFORMA--%>
-<section class="angle-bg sky-bg section-padding" id="plataforma">
+<section class="angle-bg bg-default section-padding" id="plataforma">
     <div class="container">
         <div class="row">
             <div class="col-xs-12">
@@ -311,12 +313,12 @@
                                 </div>
                                 <div class="col-xs-6 col-md-3">
                                     <div class="caption-photo one" data-animation="animated fadeInRight">
-                                        <img src="${path}/main/images/screen-1.jpg" alt="">
+                                        <img src="images/img-gif/gif-cadastro.gif" alt="gif">
                                     </div>
                                 </div>
                                 <div class="col-xs-6 col-md-3">
                                     <div class="caption-photo two" data-animation="animated fadeInRight">
-                                        <img src="${path}/main/images/screen-2.jpg" alt="">
+                                        <img src="images/img-gif/gif-cadastro.gif" alt="gif">
                                     </div>
                                 </div>
                             </div>
@@ -339,12 +341,12 @@
                                 </div>
                                 <div class="col-xs-6 col-md-3">
                                     <div class="caption-photo one" data-animation="animated fadeInRight">
-                                        <img src="${path}/main/images/screen-3.jpg" alt="">
+                                        <img src="images/screen-3.jpg" alt="">
                                     </div>
                                 </div>
                                 <div class="col-xs-6 col-md-3">
                                     <div class="caption-photo two" data-animation="animated fadeInRight">
-                                        <img src="${path}/main/images/screen-4.jpg" alt="">
+                                        <img src="images/screen-4.jpg" alt="">
                                     </div>
                                 </div>
                             </div>
@@ -367,12 +369,12 @@
                                 </div>
                                 <div class="col-xs-6 col-md-3">
                                     <div class="caption-photo one" data-animation="animated fadeInRight">
-                                        <img src="${path}/main/images/screen-7.jpg" alt="">
+                                        <img src="images/screen-7.jpg" alt="">
                                     </div>
                                 </div>
                                 <div class="col-xs-6 col-md-3">
                                     <div class="caption-photo two" data-animation="animated fadeInRight">
-                                        <img src="${path}/main/images/screen-2.jpg" alt="">
+                                        <img src="images/screen-2.jpg" alt="">
                                     </div>
                                 </div>
                             </div>
@@ -395,12 +397,12 @@
                                 </div>
                                 <div class="col-xs-6 col-md-3">
                                     <div class="caption-photo one" data-animation="animated fadeInRight">
-                                        <img src="${path}/main/images/screen-3.jpg" alt="">
+                                        <img src="images/screen-3.jpg" alt="">
                                     </div>
                                 </div>
                                 <div class="col-xs-6 col-md-3">
                                     <div class="caption-photo two" data-animation="animated fadeInRight">
-                                        <img src="${path}/main/images/screen-4.jpg" alt="">
+                                        <img src="images/screen-4.jpg" alt="">
                                     </div>
                                 </div>
                             </div>
@@ -527,7 +529,7 @@
                             <p>De acordo com as respectivas legislações, segue tabela abaixo com os percentuais de
                                 remuneração:
                             </p>
-                            <img src="${path}/images/cases-img/tabela-fiscal.png" alt="tabela fiscal">
+                            <img src="${path}/main/images/cases-img/tabela-fiscal.png" alt="tabela fiscal">
                         </div>
                     </div>
                 </div>
@@ -538,7 +540,6 @@
 <%--PERGUNTAS FREQUENTES--%>
 
 <%--CAROSSEL DE PROJETOS--%>
-
 <section class="section-padding bg-default client-area" id="client-page">
     <div class="container">
         <div class="row justify-content-end">
@@ -606,7 +607,6 @@
                             <p class="lead">Equipes de Basquete em Cadeiras de Rodas
                                 ADD - Associação Desportiva para Deficiente
 
-
                             </p>
                         </div>
                     </div>
@@ -615,7 +615,6 @@
                         <div>
                             <p class="lead">Fortaleza Cidade Amiga do Idoso
                                 NUPROCE - Núcleo de Produções Culturais e Esportivas
-
                             </p>
                         </div>
                     </div>
@@ -624,8 +623,10 @@
         </div>
     </div>
 </section>
+<%--CAROSSEL DE PROJETOS--%>
 
 
+<!--CONTATO-->
 <footer class="footer-area relative sky-bg" id="contact-page">
     <div class="absolute "></div>
     <div class="footer-top">
@@ -634,9 +635,7 @@
                 <div class="col-xs-12 col-sm-6 col-sm-offset-3 text-center">
                     <div class="page-title">
                         <h2 style="color:white">Contate-nos</h2>
-                        <p style="color:white">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Velit
-                            voluptates, temporibus
-                            at, facere harum fugiat!</p>
+                        <p style="color:white">Caso tenha qualquer duvida ou sugestão, entre em contato conosco</p>
                     </div>
                 </div>
             </div>
@@ -647,15 +646,15 @@
                             <div class="side-icon">
                                 <img src="${path}/main/images/location-arrow.png" alt="">
                             </div>
-                            <p><strong>Endereço</strong> Rua vicente lotti<br/>São Paulo - SP</p>
+                            <p><strong>Endereço</strong>Rua Vicente Lotti, 37<br/>Vila Ema - São Paulo - SP,
+                                03282-060</p>
                         </div>
                         <div class="side-icon-box">
                             <div class="side-icon">
                                 <img src="${path}/main/images/phone-arrow.png" alt="">
                             </div>
                             <p><strong>Telefone </strong>
-                                <a href="callto:8801812726495">(11)2053-7866</a> <br/>
-                                <a href="callto:8801687420471">(11)9999-9999</a>
+                                <a href="#">(11)2389-5766</a> <br/>
                             </p>
                         </div>
                         <div class="side-icon-box">
@@ -663,7 +662,7 @@
                                 <img src="${path}/main/images/mail-arrow.png" alt="">
                             </div>
                             <p><strong>E-mail: </strong>
-                                <a href="#">yabaconsultoria@contato.com.br</a> <br/>
+                                <a href="#">comunicacao@yabaconsultoria.com.br</a> <br/>
                             </p>
                         </div>
                     </address>
@@ -713,6 +712,7 @@
         </div>
     </div>
 </footer>
+<%--CONTATO--%>
 
 <script>
     function typeWriter(elemento) {

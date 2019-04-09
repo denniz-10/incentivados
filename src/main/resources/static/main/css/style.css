@@ -95,9 +95,11 @@ input:-webkit-autofill, input:-webkit-autofill:hover, input:-webkit-autofill:foc
 *Helper-Classes
 **/
 
+/* ALTURA DE HEADER */
+
 .full-height {
     width: 100%;
-    height: 100vh;
+    height: 75vh;
 }
 
 .relative {
@@ -172,7 +174,7 @@ input:-webkit-autofill, input:-webkit-autofill:hover, input:-webkit-autofill:foc
 .overlay:before, .sky-bg {
     background: #75cbe7;
     background: -webkit-gradient(linear, left top, left bottom, from(#75cbe7), to(#138fc2));
-    background: linear-gradient(to bottom, #0c256b86 0%, #04206d8c 100%);
+    background: linear-gradient(to bottom, #1d43aa86 0%, #04206d8c 100%);
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#75cbe7', endColorstr='#138fc2', GradientType=0);
     color: #ffffff;
 }
@@ -348,7 +350,7 @@ input:-webkit-autofill, input:-webkit-autofill:hover, input:-webkit-autofill:foc
 .mainmenu-area .logo h5 {
     font-size: 1rem;
     color: rgb(232, 178, 19);
-    margin: 0 15rem;
+    margin: 0 0 0 15rem;
 }
 
 .mainmenu-area #primary-menu>ul>li>a {
@@ -393,12 +395,11 @@ input:-webkit-autofill, input:-webkit-autofill:hover, input:-webkit-autofill:foc
 *Header-area
 **/
 
- /* .client-area,
- .header-area {
-    background: #000000 url('images/ponte-bg-5.png') no-repeat scroll center center / cover;
-}   */
+.footer-area {
+    background: #000000 url('/main/images/ponte-bg-5.png') no-repeat scroll center center / cover;
+}
 
- /* .anlge-bg {
+/* .anlge-bg {
     background: url('images/angle-bg.png') no-repeat scroll center bottom -120px / 100% auto;
 }  */
 
@@ -1025,7 +1026,7 @@ preloader
     width: 200vw;
     height: 220vw;
     position: fixed;
-    top: -190vw;
+    top: -185vw;
     left: -50vw;
     border-radius: 90vw;
     opacity: 0.9;
@@ -1109,10 +1110,7 @@ rgb(5, 24, 50);  */
 }
 
 /* hr {
-    border-top: 1px dashed rgb(255, 255, 255);
-    border-bottom: 1px solid rgb(255, 255, 255);
-    color: #0b266e;
-    background-color: #0b266e;
+    border-top: 1px dashed #0b266e;
     height: 10px;
     margin: 0%;
   } */
@@ -1149,6 +1147,7 @@ rgb(5, 24, 50);  */
     --input-padding-x: 1.5rem;
     --input-padding-y: .75rem;
 }
+
 /* 
 body {
     background: #007bff;
@@ -1245,66 +1244,86 @@ body {
     color: #777;
 }
 
+/* Style Cadastro*/
 
-/* style cadastro*/
-/* .section-p-cadastro{
+.section-p-cadastro {
     padding: 100px 0;
 }
 
-.signup-area{
+.signup-area {
     background: #000000 url('images/ponte-bg-5.png') no-repeat scroll center center / cover;
 }
 
-.formBox{
-	margin-top: 10px;
-	padding: 10px;
+.formBox {
+    margin-top: 10px;
+    padding: 10px;
 }
-.formBox  h1{
-	margin: 0;
-	padding: 0;
-	text-align: center;
-	margin-bottom: 50px;
-	text-transform: uppercase;
-	font-size: 20px;
+
+.formBox h1 {
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    margin-bottom: 50px;
+    text-transform: uppercase;
+    font-size: 20px;
 }
-.inputBox{
-	position: relative;
-	box-sizing: border-box;
-	margin-bottom: 40px;
+
+.box-input {
+    position: relative;
+    box-sizing: border-box;
+    margin-bottom: 20px;
 }
-.inputBox .inputText{
-	position: absolute;
-    font-size: 24px;
-    line-height: 50px;
+
+.box-input .text-input {
+    position: absolute;
+    font-size: 1.6rem;
+    line-height: 70px;
     transition: .5s;
-    opacity: .5;
+    opacity: .7;
+    color: black;
 }
-.inputBox .input{
-	position: relative;
-	width: 100%;
-	height: 50px;
-	background: transparent;
-	border: none;
+
+.box-input .input {
+    position: relative;
+    width: 100%;
+    height: 50px;
+    background: transparent;
+    border: none;
     outline: none;
-    font-size: 18px;
-    border-bottom: 1px solid rgba(0,0,0,.5);
+    font-size: 16px;
+    border-bottom: 1px solid rgba(0, 0, 0, .5);
+    color: black;
+}
 
+.focus .text-input {
+    transform: translateY(-30px);
+    font-size: 1.4rem;
+    opacity: 1;
+    color: #021c8f;
+    height: 50px !important;
 }
-.focus .inputText{
-	transform: translateY(-30px);
-	font-size: 18px;
-	opacity: 1;
-	color: #021c8f;
 
+label {
+    color: black;
 }
-textarea{
-	height: 100px !important;
-}
-.button{
-	width: 100%;
+
+.buttoncad {
+    width: 100%;
     height: 50px;
     border: none;
     outline: none;
-    background: #021c8f;
+    background: rgb(9, 44, 94);
     color: #fff;
-} */
+}
+
+.jumbotron {
+    background-color: #fffffff7;
+}
+
+.title-bg {
+    background-color: #051832;
+}
+
+.bg-default{
+    background-color: #165c9993;
+}
