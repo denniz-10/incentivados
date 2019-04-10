@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"  %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <html lang="pt-br">
 
 <head>
@@ -44,8 +45,7 @@
                     <div class="numbers">
                       <p class="card-category">Pedidos</p>
                       <p class="card-title">
-                        <c:if test = "${empty qtdPedidos}">0</c:if>
-                        <c:if test = "${not empty qtdPedidos}">${qtdPedidos}</c:if>
+                        ${qtdPedidos}
                       </p>
                     </div>
                   </div>
@@ -75,7 +75,7 @@
                 <div class="tab-content" id="myTabContent">
                   <div class="tab-pane fade show active" id="pendentes" role="tabpanel" aria-labelledby="pendentes-tab"> 
                     <c:if test = "${empty pendentes}">
-                      <div class="row">
+                      <div class="row mt-2">
                           <div class="col-12">
                             <div class="alert alert-danger" role="alert">
                               <p class="text-bold">Não há registro(s).</p>
@@ -83,37 +83,43 @@
                           </div>
                         </div>
                     </c:if>      
-                    <c:if test = "${not empty pendentes}">              
-                      <div class="table-responsive">
-                        <table class="table">
-                          <thead class=" text-primary">
-                            <th class="text-center">Código Pedido</th>
-                            <th class="text-center">Data Solicitação</th>
-                            <th class="text-center">Entidade</th>
-                            <th class="text-center">Empresa</th>
-                            <th class="text-center">Loja</th>
-                            <th class="text-center">Carta Ofício</th>
-                          </thead>
-                          <tbody>
-                            <c:forEach var="pedidoPendente" items="${pendentes}">
-                              <tr>
-                                <td class="text-center">${pedidoPendente.id}</td>
-                                <fmt:formatDate type = "both" dateStyle = "short" timeStyle = "short" value = "${pedidoPendente.dataCadastro}" var="dataCadastro" />
-                                <td class="text-center">${dataCadastro}</td>
-                                <td class="text-center">${pedidoPendente.entidade.nomeFantasia}</td>
-                                <td class="text-center">${pedidoPendente.empresa.nomeFantasia}</td>
-                                <td class="text-center">${pedidoPendente.analista.endereco.bairro} - ${pedidoPendente.analista.endereco.cidade} / ${pedidoPendente.analista.endereco.estado}</td>
-                                <td class="text-center"><a href="${path}/${pedidoPendente.documentosPedido.cartaOficio.path}" title="Visualizar" target="_blank"><i class="far fa-file-alt"></i> Carta Ofício</a></td>                                
-                              </tr>
-                            </c:forEach>
-                          </tbody>
-                        </table>
-                      </div>   
+                    <c:if test = "${not empty pendentes}">   
+                      <div class="row mt-2">  
+                        <div class="col-12">         
+                          <div class="table-responsive">
+                            <table class="table">
+                              <thead class=" text-primary">
+                                <th class="text-center">Código Pedido</th>
+                                <th class="text-center">Data Solicitação</th>
+                                <th class="text-center">Entidade</th>
+                                <th class="text-center">Empresa</th>
+                                <th class="text-center">Loja</th>
+                                <th class="text-center">Carta Ofício</th>
+                                <th class="text-center"></th>
+                              </thead>
+                              <tbody>
+                                <c:forEach var="pedidoPendente" items="${pendentes}">
+                                  <tr>
+                                    <td class="text-center">${pedidoPendente.id}</td>
+                                    <fmt:formatDate type = "both" dateStyle = "short" timeStyle = "short" value = "${pedidoPendente.dataCadastro}" var="dataCadastro" />
+                                    <td class="text-center">${dataCadastro}</td>
+                                    <td class="text-center">${pedidoPendente.entidade.nomeFantasia}</td>
+                                    <td class="text-center">${pedidoPendente.empresa.nomeFantasia}</td>
+                                    <td class="text-center">${pedidoPendente.analista.endereco.bairro} - ${pedidoPendente.analista.endereco.cidade} / ${pedidoPendente.analista.endereco.estado}</td>
+                                    <td class="text-center"><a href="${path}/${pedidoPendente.documentosPedido.cartaOficio.path}" title="Visualizar" target="_blank"><i class="far fa-file-alt"></i> Carta Ofício</a></td> 
+                                    <td class="text-center"><button class="btn btn-success btn-sm" title="Avaliar"><i class="fas fa-sign-in-alt"></i></button></td>                               
+                                  </tr>
+                                </c:forEach>
+                              </tbody>
+                            </table>
+                          </div> 
+                        </div>
+                      </div>  
                     </c:if>          
                   </div>                  
                   <div class="tab-pane fade show" id="aprovados" role="tabpanel" aria-labelledby="aprovados-tab"> 
                     <c:if test = "${empty aprovados}">
-                      <div class="row">
+                      <div class="row mt-2">
                         <div class="col-12">
                           <div class="alert alert-danger" role="alert">
                             <p class="text-bold">Não há registro(s).</p>
@@ -151,7 +157,7 @@
                   </div>                  
                   <div class="tab-pane fade show" id="recusados" role="tabpanel" aria-labelledby="recusados-tab"> 
                     <c:if test = "${empty recusados}">
-                      <div class="row">
+                      <div class="row mt-2">
                         <div class="col-12">
                           <div class="alert alert-danger" role="alert">
                             <p class="text-bold">Não há registro(s).</p>

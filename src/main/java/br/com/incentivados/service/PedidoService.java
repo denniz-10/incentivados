@@ -2,14 +2,13 @@ package br.com.incentivados.service;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
-import java.util.Calendar;
-import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -63,10 +62,15 @@ public class PedidoService {
 	public List<Pedido> findByUsuario(Usuario usuario) {
 		return pedidoRepository.findByUsuario(usuario);
 	}
+	
+	// Serviço de buscar PEDIDO pelo USUÁRIO
+		public List<Pedido> findByAnalistaAndStatus(Usuario analista, StatusPedido status, Pageable page) {
+			return pedidoRepository.findByAnalistaAndStatus(analista, status, page);
+		}
 
 	// Serviço de buscar PEDIDO pelo USUÁRIO
-	public List<Pedido> findByAnalistaAndStatus(Usuario analista, StatusPedido status) {
-		return pedidoRepository.findByAnalistaAndStatus(analista, status);
+	public List<Pedido> findAllByAnalistaAndStatus(Usuario analista, StatusPedido status) {
+		return pedidoRepository.findAllByAnalistaAndStatus(analista, status);
 	}
 
 	// Serviço que contabiliza todos os PEDIDOS
@@ -86,7 +90,7 @@ public class PedidoService {
 
 	// Serviço que contabiliza todos os PEDIDOS por ANALISTA
 	public Long countByAnalista(Usuario analista) {
-		return pedidoRepository.countByUsuario(analista);
+		return pedidoRepository.countByAnalista(analista);
 	}
 
 	// Serviço que contabiliza todos os PEDIDOS por ANALISTA e STATUS
