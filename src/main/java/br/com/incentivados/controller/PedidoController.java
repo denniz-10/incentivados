@@ -13,6 +13,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
+import br.com.incentivados.enumerated.StatusPedido;
+import br.com.incentivados.enumerated.TipoUsuario;
 import br.com.incentivados.model.Empresa;
 import br.com.incentivados.model.Entidade;
 import br.com.incentivados.model.Pedido;
@@ -21,6 +23,7 @@ import br.com.incentivados.service.EmpresaService;
 import br.com.incentivados.service.EntidadeService;
 import br.com.incentivados.service.PedidoService;
 import br.com.incentivados.service.UsuarioService;
+import javassist.bytecode.analysis.Analyzer;
 
 @Controller
 public class PedidoController {
@@ -128,12 +131,23 @@ public class PedidoController {
 		// Seta o breadcrumb da página
 		model.addAttribute("breadcrumb", "Pedido " + " <i class='fas fa-angle-double-right'></i> " + " Lista");
 		
+		Usuario usuario =  (Usuario) request.getSession().getAttribute("usuario");
+		
 		try {
-			List<Pedido> pedidos = new ArrayList<Pedido>();
-			pedidos = pedidoService.findAll();
-			model.addAttribute("pedidos", pedidos);
-			model.addAttribute("qtdPedidos", pedidoService.count());
-			return "painel/admin/pedido/lista";
+			
+			List<Pedido> pedidos = new ArrayList<Pedido>();			
+			
+			switch (usuario.getTipoUsuario()) {
+			case ADMIN:
+				pedidos = pedidoService.findAll();
+				model.addAttribute("pedidos", pedidos);
+				model.addAttribute("qtdPedidos", pedidoService.count());
+				return "painel/admin/pedido/lista";
+				
+			default:
+				return "";
+			}
+			
 		} catch (Exception e) {
 			System.err.println(e);
 			return "";

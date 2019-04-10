@@ -10,7 +10,8 @@
         </button>
       </div>
       <form action="${path}/usuarios/cadastro" method="post" acceptcharset="UTF-8">
-        <div class="modal-body">        
+        <div class="modal-body">    
+          <input type="hidden" name="tipoUsuario" value="ENTIDADE">    
           <fieldset>
           <legend>Informações Gerais:</legend>
             <div class="row mt-3 mt-3">               
