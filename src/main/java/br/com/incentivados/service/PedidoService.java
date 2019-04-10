@@ -47,6 +47,12 @@ public class PedidoService {
 
 		return pedidoRepository.save(pedido);
 	}
+	
+	// Serviço de atualizar pedido
+		public Pedido update(Pedido pedido, StatusPedido status) {
+			pedido.setStatus(status);
+			return pedidoRepository.save(pedido);
+		}
 
 	// Serviço de busca objeto pelo ID
 	public Optional<Pedido> findById(Long id) {

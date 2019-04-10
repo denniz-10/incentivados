@@ -36,83 +36,73 @@
               <div class="card-header bg-primary"></div>
               <div class="card-body border">
                 <form action="${path}/painel/pedidos/${empresa.nomeFantasia}/cadastro" method="post" enctype="multipart/form-data" acceptcharset="UTF-8">
-
+                  <input type="hidden" name="pedido.id" value="${pedido.id}">
                   <fieldset>
                   <legend class="text-primary">Solicitante:</legend>
                   <hr class="bg-primary">
-                  <input type="hidden" name="usuario.id" value="${usuario.id}">
                   <div class="row mt-3">               
                     <div class="col-4">
                       <div class="form-group">
                           <label>Nome:</label>
-                          <input type="text" class="form-control" value="${usuario.nome} ${usuario.sobrenome}" readonly required>
+                          <input type="text" class="form-control" value="${pedido.usuario.nome} ${pedido.usuario.sobrenome}" readonly>
                       </div>
                     </div>                     
                     <div class="col-4">
                       <div class="form-group">
                           <label>E-mail:</label>
-                          <input type="text" class="form-control" value="${usuario.email}" readonly required>
+                          <input type="text" class="form-control" value="${pedido.usuario.email}" readonly>
                       </div>
                     </div>    
                     <div class="col-4">
                       <div class="form-group">
                           <label>CPF:</label>
-                          <input type="text" class="form-control" value="${usuario.cpf}" readonly required>
+                          <input type="text" class="form-control" value="${pedido.usuario.cpf}" readonly>
                       </div>
                     </div>   
                   </div>
                   <div class="row">
                     <div class="col-12">
                       <label>Entidade:</label>                      
-                      <select class="selectpicker form-control" name="entidade.id" title="Selecione ..." data-live-search="true" data-style="btn-primary" required>
-                        <c:forEach var="entidade" items="${entidades}">
-                          <option value="${entidade.id}" required>${entidade.razaoSocial} - ${entidade.cnpj}</option>
-                        </c:forEach>
-                      </select>
+                      <input type="text" class="form-control" value="${pedido.entidade.nomeFantasia}" readonly>
                     </div>
                   </div>
                   <div class="row"> 
                     <div class="col-md-12">
                       <div class="form-group">
-                        <label>Solicitação:</label>
-                        <textarea class="form-control" name="solicitacao" rows="10" maxlength="3000" placeholder="Descreva sua solicitação ..." required></textarea>
+                        <label>Descrição do Pedido:</label>
+                        <textarea class="form-control" rows="10" placeholder="Não Informado" readonly>${pedido.solicitacao}</textarea>
                       </div>
                     </div>  
                   </div>
                   </fieldset>  
 
                   <fieldset class="mt-5">
-                  <legend class="text-primary">Patrocinador:</legend>
+                  <legend class="text-primary">Destino:</legend>
                   <hr class="bg-primary">
                   <div class="row mt-3">  
-                    <div class="col-4">
-                      <input type="hidden" name="empresa.id" value="${empresa.id}">
+                    <div class="col-4">                      
                       <div class="form-group">
                           <label>Nome Fantasia:</label>
-                          <input type="text" class="form-control" value="${empresa.nomeFantasia}" readonly required>
+                          <input type="text" class="form-control" value="${pedido.entidade.nomeFantasia}" readonly>
                       </div>
                     </div>             
                     <div class="col-4">
                       <div class="form-group">
                           <label>Razão Social:</label>
-                          <input type="text" class="form-control" value="${empresa.razaoSocial}" readonly required>
+                          <input type="text" class="form-control" value="${pedido.entidade.razaoSocial}" readonly>
                       </div>
                     </div>
                     <div class="col-4">
                       <div class="form-group">
                           <label>CNPJ:</label>
-                          <input type="text" class="form-control" value="${empresa.cnpj}" readonly required>
+                          <input type="text" class="form-control" value="${pedido.entidade.cnpj}" readonly>
                       </div>
                     </div>    
                   </div>
                   <div class="row">
                     <div class="col-12">
-                      <label>Loja:</label>                      
-                      <select class="selectpicker form-control" name="analista.id" title="Selecione ..." data-live-search="true" data-style="btn-primary" required>
-                        <c:forEach var="analista" items="${empresa.analistas}">
-                          <option value="${analista.id}" data-content='<strong><i class="far fa-building"></i> ${analista.endereco.bairro}</strong> (${analista.endereco.cidade} - ${analista.endereco.estado})' required></option>
-                        </c:forEach>
-                      </select>
+                      <label>Loja:</label>  
+                      <input type="text" class="form-control" value="${pedido.analista.endereco.bairro} ( ${pedido.analista.endereco.cidade} / ${pedido.analista.endereco.estado} )" readonly>
                     </div>
                   </div>
                   </fieldset> 
@@ -125,17 +115,17 @@
                   <div class="row justify-content-start">
                     <div class="col-lg-2 text-center mt-5">
                       <div class="form-group">
-                          <label for="carta-oficio"><i class="far fa-file-alt text-primary" style="font-size: 56px;"></i></label>
+                          <a href="${path}/${pedido.documentosPedido.cartaOficio.path}" target="_blank"><i class="far fa-file-alt text-primary" style="font-size: 56px;"></i></a>
                           <hr>
-                          <h5 class="text-center">Carta Oficio</h5>                          
-                          <input type="file" id="carta-oficio" name="documentosPedido.cartaOficio.file" onchange="validaImgPdf(this, this.id)" required> 
+                          <h5 class="text-center">Carta Ofício</h5>
                       </div>
-                    </div> 
+                    </div>
                   </fieldset> 
 
                   <hr class="bg-primary">
-                  <button type="submit" class="btn btn-success float-right">Enviar <i class="far fa-share-square"></i></button>
-                  <a href="${path}/entidades" class="btn btn-danger float-right"><i class="fas fa-angle-double-left"></i> Voltar</a>
+                  <a href="${path}/painel/pedido/${pedido.id}/RECUSADO" class="btn btn-danger float-right">Reprovar <i class="far fa-share-square"></i></a>
+                  <a href="${path}/painel/pedido/${pedido.id}/APROVADO" class="btn btn-success float-right">Aprovar <i class="far fa-share-square"></i></a>
+                  <a href="${path}/dashboard" class="btn btn-warning float-left"><i class="fas fa-angle-double-left"></i> Voltar</a>
                 </form>
               </div>
               <div class="card-footer bg-primary"></div>

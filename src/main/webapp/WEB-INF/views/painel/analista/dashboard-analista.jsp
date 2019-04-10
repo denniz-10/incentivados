@@ -61,15 +61,15 @@
           <div class="col-md-12">
             <div class="card ">
               <div class="card-body">
-                <ul class="nav nav-tabs" id="myTab" role="tablist">
+                <ul class="nav nav-pills" id="myTab" role="tablist">
                   <li class="nav-item">
-                    <a class="nav-link active" id="pendentes-tab" data-toggle="tab" href="#pendentes" role="tab" aria-controls="pendentes" aria-selected="true">Pendentes: ${qtdPendente}</a>
+                    <a class="nav-link active bg-warning text-white border" id="pendentes-tab" data-toggle="tab" href="#pendentes" role="tab" aria-controls="pendentes" aria-selected="true">Pendentes: ${qtdPendente}</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link" id="aprovados-tab" data-toggle="tab" href="#aprovados" role="tab" aria-controls="aprovados" aria-selected="false">Aprovados: ${qtdAprovado}</a>
+                    <a class="nav-link bg-success text-white border" id="aprovados-tab" data-toggle="tab" href="#aprovados" role="tab" aria-controls="aprovados" aria-selected="false">Aprovados: ${qtdAprovado}</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link" id="recusados-tab" data-toggle="tab" href="#recusados" role="tab" aria-controls="recusados" aria-selected="false">Recusados: ${qtdRecusado}</a>
+                    <a class="nav-link bg-danger text-white border" id="recusados-tab" data-toggle="tab" href="#recusados" role="tab" aria-controls="recusados" aria-selected="false">Recusados: ${qtdRecusado}</a>
                   </li>
                 </ul>
                 <div class="tab-content" id="myTabContent">
@@ -86,8 +86,8 @@
                     <c:if test = "${not empty pendentes}">   
                       <div class="row mt-2">  
                         <div class="col-12">         
-                          <div class="table-responsive">
-                            <table class="table">
+                          <div class="table-responsive pr-3">
+                            <table class="table border">
                               <thead class=" text-primary">
                                 <th class="text-center">Código Pedido</th>
                                 <th class="text-center">Data Solicitação</th>
@@ -107,7 +107,7 @@
                                     <td class="text-center">${pedidoPendente.empresa.nomeFantasia}</td>
                                     <td class="text-center">${pedidoPendente.analista.endereco.bairro} - ${pedidoPendente.analista.endereco.cidade} / ${pedidoPendente.analista.endereco.estado}</td>
                                     <td class="text-center"><a href="${path}/${pedidoPendente.documentosPedido.cartaOficio.path}" title="Visualizar" target="_blank"><i class="far fa-file-alt"></i> Carta Ofício</a></td> 
-                                    <td class="text-center"><button class="btn btn-success btn-sm" title="Avaliar"><i class="fas fa-sign-in-alt"></i></button></td>                               
+                                    <td class="text-center"><a class="btn btn-success btn-sm" href="${path}/painel/pedido/${pedidoPendente.id}" title="Avaliar"><i class="fas fa-sign-in-alt"></i></a></td>
                                   </tr>
                                 </c:forEach>
                               </tbody>
@@ -127,32 +127,36 @@
                         </div>
                       </div>
                     </c:if>      
-                    <c:if test = "${not empty aprovados}">              
-                      <div class="table-responsive">
-                        <table class="table">
-                          <thead class=" text-primary">
-                            <th class="text-center">Código Pedido</th>
-                            <th class="text-center">Data Solicitação</th>
-                            <th class="text-center">Entidade</th>
-                            <th class="text-center">Empresa</th>
-                            <th class="text-center">Loja</th>
-                            <th class="text-center">Carta Ofício</th>
-                          </thead>
-                          <tbody>
-                            <c:forEach var="pedidoAprovado" items="${aprovados}">
-                              <tr>
-                                <td class="text-center">${pedidoAprovado.id}</td>
-                                <fmt:formatDate type = "both" dateStyle = "short" timeStyle = "short" value = "${pedidoAprovado.dataCadastro}" var="dataCadastro" />
-                                <td class="text-center">${dataCadastro}</td>
-                                <td class="text-center">${pedidoAprovado.entidade.nomeFantasia}</td>
-                                <td class="text-center">${pedidoAprovado.empresa.nomeFantasia}</td>
-                                <td class="text-center">${pedidoAprovado.analista.endereco.bairro} - ${pedidoAprovado.analista.endereco.cidade} / ${pedidoAprovado.analista.endereco.estado}</td>
-                                <td class="text-center"><a href="${path}/${pedidoAprovado.documentosPedido.cartaOficio.path}" title="Visualizar" target="_blank"><i class="far fa-file-alt"></i> Carta Ofício</a></td>                                
-                              </tr>
-                            </c:forEach>
-                          </tbody>
-                        </table>
-                      </div>   
+                    <c:if test = "${not empty aprovados}">   
+                      <div class="row mt-2">  
+                        <div class="col-12">            
+                          <div class="table-responsive pr-3">
+                            <table class="table border">
+                              <thead class=" text-primary">
+                                <th class="text-center">Código Pedido</th>
+                                <th class="text-center">Data Solicitação</th>
+                                <th class="text-center">Entidade</th>
+                                <th class="text-center">Empresa</th>
+                                <th class="text-center">Loja</th>
+                                <th class="text-center">Carta Ofício</th>
+                              </thead>
+                              <tbody>
+                                <c:forEach var="pedidoAprovado" items="${aprovados}">
+                                  <tr>
+                                    <td class="text-center">${pedidoAprovado.id}</td>
+                                    <fmt:formatDate type = "both" dateStyle = "short" timeStyle = "short" value = "${pedidoAprovado.dataCadastro}" var="dataCadastro" />
+                                    <td class="text-center">${dataCadastro}</td>
+                                    <td class="text-center">${pedidoAprovado.entidade.nomeFantasia}</td>
+                                    <td class="text-center">${pedidoAprovado.empresa.nomeFantasia}</td>
+                                    <td class="text-center">${pedidoAprovado.analista.endereco.bairro} - ${pedidoAprovado.analista.endereco.cidade} / ${pedidoAprovado.analista.endereco.estado}</td>
+                                    <td class="text-center"><a href="${path}/${pedidoAprovado.documentosPedido.cartaOficio.path}" title="Visualizar" target="_blank"><i class="far fa-file-alt"></i> Carta Ofício</a></td>                                
+                                  </tr>
+                                </c:forEach>
+                              </tbody>
+                            </table>
+                          </div> 
+                        </div>
+                      </div>  
                     </c:if>  
                   </div>                  
                   <div class="tab-pane fade show" id="recusados" role="tabpanel" aria-labelledby="recusados-tab"> 
@@ -165,32 +169,36 @@
                         </div>
                       </div>
                     </c:if>      
-                    <c:if test = "${not empty recusados}">              
-                      <div class="table-responsive">
-                        <table class="table">
-                          <thead class=" text-primary">
-                            <th class="text-center">Código Pedido</th>
-                            <th class="text-center">Data Solicitação</th>
-                            <th class="text-center">Entidade</th>
-                            <th class="text-center">Empresa</th>
-                            <th class="text-center">Loja</th>
-                            <th class="text-center">Carta Ofício</th>
-                          </thead>
-                          <tbody>
-                            <c:forEach var="pedidoReprovado" items="${recusados}">
-                              <tr>
-                                <td class="text-center">${pedidoReprovado.id}</td>
-                                <fmt:formatDate type = "both" dateStyle = "short" timeStyle = "short" value = "${pedidoReprovado.dataCadastro}" var="dataCadastro" />
-                                <td class="text-center">${dataCadastro}</td>
-                                <td class="text-center">${pedidoReprovado.entidade.nomeFantasia}</td>
-                                <td class="text-center">${pedidoReprovado.empresa.nomeFantasia}</td>
-                                <td class="text-center">${pedidoReprovado.analista.endereco.bairro} - ${pedidoReprovado.analista.endereco.cidade} / ${pedidoReprovado.analista.endereco.estado}</td>
-                                <td class="text-center"><a href="${path}/${pedidoReprovado.documentosPedido.cartaOficio.path}" title="Visualizar" target="_blank"><i class="far fa-file-alt"></i> Carta Ofício</a></td>                                
-                              </tr>
-                            </c:forEach>
-                          </tbody>
-                        </table>
-                      </div>   
+                    <c:if test = "${not empty recusados}">   
+                      <div class="row mt-2">  
+                        <div class="col-12">            
+                          <div class="table-responsive pr-3">
+                            <table class="table border">
+                              <thead class=" text-primary">
+                                <th class="text-center">Código Pedido</th>
+                                <th class="text-center">Data Solicitação</th>
+                                <th class="text-center">Entidade</th>
+                                <th class="text-center">Empresa</th>
+                                <th class="text-center">Loja</th>
+                                <th class="text-center">Carta Ofício</th>
+                              </thead>
+                              <tbody>
+                                <c:forEach var="pedidoReprovado" items="${recusados}">
+                                  <tr>
+                                    <td class="text-center">${pedidoReprovado.id}</td>
+                                    <fmt:formatDate type = "both" dateStyle = "short" timeStyle = "short" value = "${pedidoReprovado.dataCadastro}" var="dataCadastro" />
+                                    <td class="text-center">${dataCadastro}</td>
+                                    <td class="text-center">${pedidoReprovado.entidade.nomeFantasia}</td>
+                                    <td class="text-center">${pedidoReprovado.empresa.nomeFantasia}</td>
+                                    <td class="text-center">${pedidoReprovado.analista.endereco.bairro} - ${pedidoReprovado.analista.endereco.cidade} / ${pedidoReprovado.analista.endereco.estado}</td>
+                                    <td class="text-center"><a href="${path}/${pedidoReprovado.documentosPedido.cartaOficio.path}" title="Visualizar" target="_blank"><i class="far fa-file-alt"></i> Carta Ofício</a></td>                                
+                                  </tr>
+                                </c:forEach>
+                              </tbody>
+                            </table>
+                          </div>  
+                        </div>
+                      </div> 
                     </c:if>  
                   </div>
                 </div>
