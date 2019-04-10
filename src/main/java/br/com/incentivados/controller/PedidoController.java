@@ -123,6 +123,50 @@ public class PedidoController {
 		}
 	}
 
+	@GetMapping("/painel/pedido/{id}")
+	public String getAvaliacaoPedido(@PathVariable Long id, HttpServletRequest request, Model model) {
+
+		// Seta o path da requisição
+		model.addAttribute("path", request.getContextPath());
+
+		Usuario usuario = (Usuario) request.getSession().getAttribute("usuario");
+
+		Pedido pedido = pedidoService.findById(id).get();
+		model.addAttribute("pedido", pedido);
+
+		switch (usuario.getTipoUsuario()) {
+		case ANALISTA:
+			return "painel/analista/pedido/visualizar";
+
+		case ENTIDADE:
+			return "painel/entidade/pedido/visualizar";
+
+		default:
+			return "";
+		}
+	}
+	
+	@GetMapping("/painel/pedido/{id}/{status}")
+	public String posAvaliacaoPedido(@PathVariable Long id, @PathVariable StatusPedido status, HttpServletRequest request, Model model) {
+
+		// Seta o path da requisição
+		model.addAttribute("path", request.getContextPath());
+
+		Usuario usuario = (Usuario) request.getSession().getAttribute("usuario");
+
+		Pedido pedido = pedidoService.findById(id).get();
+		pedidoService.update(pedido, status);
+		
+
+		switch (usuario.getTipoUsuario()) {
+		case ANALISTA:
+			return "redirect:/painel/dashboard";
+
+		default:
+			return "";
+		}
+	}
+
 	@GetMapping("/painel/pedidos")
 	public String getPedidos(HttpServletRequest request, Model model) {
 
@@ -130,24 +174,24 @@ public class PedidoController {
 		model.addAttribute("path", request.getContextPath());
 		// Seta o breadcrumb da página
 		model.addAttribute("breadcrumb", "Pedido " + " <i class='fas fa-angle-double-right'></i> " + " Lista");
-		
-		Usuario usuario =  (Usuario) request.getSession().getAttribute("usuario");
-		
+
+		Usuario usuario = (Usuario) request.getSession().getAttribute("usuario");
+
 		try {
-			
-			List<Pedido> pedidos = new ArrayList<Pedido>();			
-			
+
+			List<Pedido> pedidos = new ArrayList<Pedido>();
+
 			switch (usuario.getTipoUsuario()) {
 			case ADMIN:
 				pedidos = pedidoService.findAll();
 				model.addAttribute("pedidos", pedidos);
 				model.addAttribute("qtdPedidos", pedidoService.count());
 				return "painel/admin/pedido/lista";
-				
+
 			default:
 				return "";
 			}
-			
+
 		} catch (Exception e) {
 			System.err.println(e);
 			return "";
