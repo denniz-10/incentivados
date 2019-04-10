@@ -16,12 +16,6 @@
           Dashboard
         </a>
       </li>
-      <li>
-        <a href="${path}/painel/pedidos">
-          <i class="fas fa-praying-hands"></i>
-          Pedidos
-        </a>
-      </li>
     </ul>
   </div>
 </div>
