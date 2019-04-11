@@ -181,7 +181,7 @@ public class DashboardController {
 			// Lista as infos e estatísticas das entidades cadastradas
 			model.addAttribute("entidades", entidadeService.findTop3ByOrderByIdDesc());
 			model.addAttribute("qtdEntidades", entidadeService.count());
-			model.addAttribute("dataChartEntidade", entidadeService.buildChart());
+			model.addAttribute("datasChartEntidade", entidadeService.buildChart());
 
 			// Lista as infos e estatísticas dos projetos cadastrados
 			model.addAttribute("projetos", projetoService.findTop3ByOrderByIdDesc());
