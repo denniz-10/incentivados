@@ -138,7 +138,7 @@
     <span class="flow-3"></span>
 </div>
 
-<!--Header-area-->
+<!--HEADER-->
 <header class="header-area bg-default full-height relative v-center" id="home-page">
     <div class="absolute anlge-bg"></div>
     <div class="container">
@@ -148,12 +148,12 @@
                 <p>Aumentar a chances de captação de recursos para organizações sociais e potencializar o uso
                     qualificado de recursos dedutíveis do Imposto das empresas é o propósito do Incentivados no
                     Brasil. </p>
-                <a href="#" class="button white">Comece agora!</a>
+                <a href="${path}/login" class="button white">Comece agora!</a>
             </div>
         </div>
     </div>
 </header>
-<!--Header-area/-->
+<!--HEADER/-->
 
 
 <!-- QUEM SOMOS -->
@@ -718,14 +718,11 @@
     function typeWriter(elemento) {
         const textoArray = elemento.innerHTML.split('');
         elemento.innerHTML = '';
-        textoArray.forEach((letra, i) = > {
-            setTimeout(() =
-    >
-        elemento.innerHTML += letra, 100 * i
-    )
-        ;
-    })
-        ;
+        textoArray.forEach((letra, i) => {
+            setTimeout(() =>
+                elemento.innerHTML += letra, 100 * i
+            );
+        });
     }
 
     const titulo = document.querySelector('.h2');
