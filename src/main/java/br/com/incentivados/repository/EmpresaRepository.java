@@ -1,12 +1,11 @@
 package br.com.incentivados.repository;
 
-import java.util.List;
-import java.util.Optional;
-
+import br.com.incentivados.model.Empresa;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import br.com.incentivados.model.Empresa;
+import java.util.List;
+import java.util.Optional;
 
 @Repository
 public interface EmpresaRepository extends JpaRepository<Empresa, Long>{

@@ -1,26 +1,18 @@
 package br.com.incentivados.service;
 
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
-import java.util.Calendar;
-import java.util.Date;
-import java.util.List;
-import java.util.Optional;
-
-import javax.servlet.http.HttpServletRequest;
-
+import br.com.incentivados.enumerated.StatusPedido;
+import br.com.incentivados.model.*;
+import br.com.incentivados.repository.PedidoRepository;
+import br.com.incentivados.utility.FileUpload;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
-import br.com.incentivados.enumerated.StatusPedido;
-import br.com.incentivados.model.Arquivo;
-import br.com.incentivados.model.Empresa;
-import br.com.incentivados.model.Entidade;
-import br.com.incentivados.model.Pedido;
-import br.com.incentivados.model.Usuario;
-import br.com.incentivados.repository.PedidoRepository;
-import br.com.incentivados.utility.FileUpload;
+import javax.servlet.http.HttpServletRequest;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import java.util.List;
+import java.util.Optional;
 
 @Service
 public class PedidoService {
