@@ -229,33 +229,7 @@
           </div>
         </div>  
       </div>
-      <footer class="footer footer-black  footer-white ">
-        <div class="container-fluid">
-          <div class="row">
-            <nav class="footer-nav">
-              <ul>
-                <li>
-                  <a href="https://www.creative-tim.com" target="_blank">Creative Tim</a>
-                </li>
-                <li>
-                  <a href="http://blog.creative-tim.com/" target="_blank">Blog</a>
-                </li>
-                <li>
-                  <a href="https://www.creative-tim.com/license" target="_blank">Licenses</a>
-                </li>
-              </ul>
-            </nav>
-            <div class="credits ml-auto">
-              <span class="copyright">
-                ©
-                <script>
-                  document.write(new Date().getFullYear())
-                </script>, made with <i class="fa fa-heart heart"></i> by Creative Tim
-              </span>
-            </div>
-          </div>
-        </div>
-      </footer>
+      <c:import url="/WEB-INF/views/componentes/footer/painel/footer.jsp" />
     </div>
   </div>
   <!--   JQUERY   -->
@@ -277,8 +251,8 @@
           data: {
               labels: ["Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho", "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro"],
               datasets: [{
-                  label: 'Registros',
-                  data: [12, 19, 3, 5, 2, 3, 12, 19, 3, 5, 2, 3],
+                  label: 'Registros',                  
+                  data: [<c:forEach var="dataChartEntidade" items="${datasChartEntidade}">${dataChartEntidade},</c:forEach>],
                   backgroundColor: [
                       'rgba(54, 162, 235, 0.2)',
                   ],
@@ -306,39 +280,12 @@
       var barChart = new Chart(barCtx, {
           type: 'bar',
           data: {
-              labels: ["Criança e Adolescente", "Fundo do Idoso", "Março", "Abril", "Maio", "Junho", "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro"],
+              labels: [<c:forEach var="incentivoFiscal" items="${incentivosFiscais}">'${incentivoFiscal.legislacao}',</c:forEach>],
               datasets: [{
                   label: 'Registros',
-                  data: [12, 19, 3, 5, 2, 3, 12, 19, 3, 5, 2, 3],
-                  backgroundColor: [
-                      'rgba(54, 162, 235, 0.2)',
-                      'rgba(54, 162, 235, 0.2)',
-                      'rgba(54, 162, 235, 0.2)',
-                      'rgba(54, 162, 235, 0.2)',
-                      'rgba(54, 162, 235, 0.2)',
-                      'rgba(54, 162, 235, 0.2)',
-                      'rgba(54, 162, 235, 0.2)',
-                      'rgba(54, 162, 235, 0.2)',
-                      'rgba(54, 162, 235, 0.2)',
-                      'rgba(54, 162, 235, 0.2)',
-                      'rgba(54, 162, 235, 0.2)',
-                      'rgba(54, 162, 235, 0.2)',
-                      'rgba(54, 162, 235, 0.2)'
-                  ],
-                  borderColor: [
-                      'rgba(54, 162, 235, 1)',
-                      'rgba(54, 162, 235, 1)',
-                      'rgba(54, 162, 235, 1)',
-                      'rgba(54, 162, 235, 1)',
-                      'rgba(54, 162, 235, 1)',
-                      'rgba(54, 162, 235, 1)',
-                      'rgba(54, 162, 235, 1)',
-                      'rgba(54, 162, 235, 1)',
-                      'rgba(54, 162, 235, 1)',
-                      'rgba(54, 162, 235, 1)',
-                      'rgba(54, 162, 235, 1)',
-                      'rgba(54, 162, 235, 1)'
-                  ],
+                  data: [<c:forEach var="dataCharProjeto" items="${datasCharProjeto}">${dataCharProjeto},</c:forEach>],
+                  backgroundColor: [<c:forEach var="incentivoFiscal" items="${incentivosFiscais}">'rgba(54, 162, 235, 0.2)',</c:forEach>],                 
+                  borderColor: [<c:forEach var="incentivoFiscal" items="${incentivosFiscais}">'rgba(54, 162, 235, 1)',</c:forEach>],
                   borderWidth: 1
               }]
           },
@@ -349,13 +296,18 @@
               scales: {
                 xAxes: [
                   {
-                    ticks:{
+                    ticks:{                      
                       callback: function (value) {
                         return ""
                       }
                     },
                   },
-                ]
+                ],
+                yAxes: [{
+                    ticks: {
+                        beginAtZero:true
+                    }
+                }]
               }
           }
       });

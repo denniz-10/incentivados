@@ -1,14 +1,13 @@
 package br.com.incentivados.service;
 
-import java.util.Date;
-import java.util.List;
-import java.util.Optional;
-
+import br.com.incentivados.model.Usuario;
+import br.com.incentivados.repository.UsuarioRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import br.com.incentivados.repository.UsuarioRepository;
-import br.com.incentivados.model.Usuario;
+import java.util.Date;
+import java.util.List;
+import java.util.Optional;
 
 @Service
 public class UsuarioService {

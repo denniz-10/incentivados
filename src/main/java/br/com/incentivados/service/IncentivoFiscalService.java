@@ -1,12 +1,11 @@
 package br.com.incentivados.service;
 
-import java.util.List;
-
+import br.com.incentivados.model.IncentivoFiscal;
+import br.com.incentivados.repository.IncentivoFiscalRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import br.com.incentivados.model.IncentivoFiscal;
-import br.com.incentivados.repository.IncentivoFiscalRepository;
+import java.util.List;
 
 @Service
 public class IncentivoFiscalService {

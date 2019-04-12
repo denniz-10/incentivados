@@ -26,12 +26,11 @@ CSS INDEX
 16. Scroll-To-Top-Button
 17. Preloader-css
 -----------------------------------------------------------------------------------*/
-
 /*-----------------
 1. Google font
 ------------------*/
-
 @import url('https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700');
+
 /*-------------------
 2. Theme Default CSS
 --------------------*/
@@ -175,7 +174,7 @@ input:-webkit-autofill, input:-webkit-autofill:hover, input:-webkit-autofill:foc
     background: #75cbe7;
     background: -webkit-gradient(linear, left top, left bottom, from(#75cbe7), to(#138fc2));
     background: linear-gradient(to bottom, #1d43aa86 0%, #04206d8c 100%);
-    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#75cbe7', endColorstr='#138fc2', GradientType=0);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#75cbe7', endColorstr='#138fc2', GradientType=0);
     color: #ffffff;
 }
 
@@ -279,7 +278,7 @@ input:-webkit-autofill, input:-webkit-autofill:hover, input:-webkit-autofill:foc
 .box:hover {
     -webkit-box-shadow: 0 10px 30px -5px rgba(236, 234, 234, 0.1);
     box-shadow: 0 10px 30px -5px rgba(255, 255, 255, 0.959);
-    background-color: #d0d2d6;
+    background-color: #ffffff;
     -webkit-transform: translateY(-5px);
     transform: translateY(-5px)
 }
@@ -353,7 +352,7 @@ input:-webkit-autofill, input:-webkit-autofill:hover, input:-webkit-autofill:foc
     margin: 0 0 0 15rem;
 }
 
-.mainmenu-area #primary-menu>ul>li>a {
+.mainmenu-area #primary-menu > ul > li > a {
     background: none;
     padding: 30px 15px;
     position: relative;
@@ -361,7 +360,7 @@ input:-webkit-autofill, input:-webkit-autofill:hover, input:-webkit-autofill:foc
     text-align: center;
 }
 
-.mainmenu-area #primary-menu>ul>li>a:before {
+.mainmenu-area #primary-menu > ul > li > a:before {
     content: "";
     position: absolute;
     left: 50%;
@@ -378,7 +377,7 @@ input:-webkit-autofill, input:-webkit-autofill:hover, input:-webkit-autofill:foc
     transition: 0.3s;
 }
 
-.mainmenu-area #primary-menu>ul>li>a:hover:before, .mainmenu-area #primary-menu>ul>li.active>a:before {
+.mainmenu-area #primary-menu > ul > li > a:hover:before, .mainmenu-area #primary-menu > ul > li.active > a:before {
     opacity: 1;
     top: 0;
 }
@@ -871,7 +870,7 @@ preloader
     background: #75cbe7;
     background: -webkit-gradient(linear, left top, left bottom, from(#75cbe7), to(#138fc2));
     background: linear-gradient(to bottom, #75cbe7 0%, #138fc2 100%);
-    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#75cbe7', endColorstr='#138fc2', GradientType=0);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#75cbe7', endColorstr='#138fc2', GradientType=0);
     z-index: 99999999999;
 }
 
@@ -1168,11 +1167,11 @@ body {
     border-radius: 2rem;
 }
 
-.form-label-group>input, .form-label-group>label {
+.form-label-group > input, .form-label-group > label {
     padding: var(--input-padding-y) var(--input-padding-x);
 }
 
-.form-label-group>label {
+.form-label-group > label {
     position: absolute;
     top: 0;
     left: 0;
@@ -1212,7 +1211,7 @@ body {
     padding-bottom: calc(var(--input-padding-y) / 3);
 }
 
-.form-label-group input:not(:placeholder-shown)~label {
+.form-label-group input:not(:placeholder-shown) ~ label {
     padding-top: calc(var(--input-padding-y) / 3);
     padding-bottom: calc(var(--input-padding-y) / 3);
     font-size: 12px;
@@ -1299,6 +1298,6 @@ label {
     background-color: #051832;
 }
 
-.bg-default{
+.bg-default {
     background-color: #165c9993;
 }

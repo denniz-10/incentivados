@@ -22,13 +22,13 @@
     <link href="assets/css/style.css" rel="stylesheet"/>
     <link rel="stylesheet" href="${path}/main/css/normalize.css">
     <style type="text/css">
-        body {
-            background: linear-gradient(#82ccdd, #0a3d62);
+        .bg-blue {
+            background-color: #051832;
         }
     </style>
 </head>
 
-<body class="bg-white">
+<body class="bg-blue">
 <div class="container h-100">
     <div class="d-flex justify-content-center h-100">
         <div class="login_card">

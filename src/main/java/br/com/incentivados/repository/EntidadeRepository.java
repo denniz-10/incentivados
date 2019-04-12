@@ -1,5 +1,8 @@
 package br.com.incentivados.repository;
 
+import java.util.Calendar;
+import java.util.Date;
+import java.util.GregorianCalendar;
 import java.util.List;
 import java.util.Optional;
 
@@ -16,6 +19,8 @@ public interface EntidadeRepository extends JpaRepository<Entidade, Long>{
 	boolean existsByUsuario(Usuario usuario);
 	
 	Long countByUsuario(Usuario usuario);
+	
+	Long countByDataCadastroBetween(Date inicio, Date fim);
 	
 	Optional<Entidade> findById(Long id);
 	
