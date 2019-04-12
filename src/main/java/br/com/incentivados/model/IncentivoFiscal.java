@@ -50,7 +50,6 @@ public class IncentivoFiscal implements Serializable{
     private Competencia competencia;
 
     @Enumerated(EnumType.ORDINAL)
-    private Atuacao atuacao;
-    
+    private Atuacao atuacao;    
 
 }
