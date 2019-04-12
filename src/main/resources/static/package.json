@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "watch": "sass --watch node_modules/bootstrap/scss:node_modules/bootstrap/compiler"
+    "watch": "sass --watch static/assets/scss -o static/assets/css "
   },
   "author": "Lucas Copque",
   "license": "ISC",

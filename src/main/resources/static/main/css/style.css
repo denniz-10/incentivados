@@ -279,7 +279,7 @@ input:-webkit-autofill, input:-webkit-autofill:hover, input:-webkit-autofill:foc
 .box:hover {
     -webkit-box-shadow: 0 10px 30px -5px rgba(236, 234, 234, 0.1);
     box-shadow: 0 10px 30px -5px rgba(255, 255, 255, 0.959);
-    background-color: #d0d2d6;
+    background-color: #ffffff;
     -webkit-transform: translateY(-5px);
     transform: translateY(-5px)
 }
