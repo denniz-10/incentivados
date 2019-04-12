@@ -216,9 +216,9 @@
                             <td class="text-center">${pedido.analista.endereco.bairro} - ${pedido.analista.endereco.cidade} / ${pedido.analista.endereco.estado}</td>
                             <td class="text-center"><a href="${path}/${pedido.documentosPedido.cartaOficio.path}" title="Visualizar" target="_blank"><i class="far fa-file-alt"></i> Carta Ofício</a></td>
                             <th class="text-center">
-                              <c:if test = "${pedido.status.id == 0}"><span class="bg-warning" ">${pedido.status}</span></c:if>
-                              <c:if test = "${pedido.status.id == 1}"><span class="bg-danger" ">${pedido.status}</span></c:if>
-                              <c:if test = "${pedido.status.id == 2}"><span class="bg-success" ">${pedido.status}</span></c:if>
+                              <c:if test = "${pedido.status.id == 0}"><span class="bg-warning" >${pedido.status}</span></c:if>
+                              <c:if test = "${pedido.status.id == 1}"><span class="bg-danger" >${pedido.status}</span></c:if>
+                              <c:if test = "${pedido.status.id == 2}"><span class="bg-success" >${pedido.status}</span></c:if>
                             </th>
                           </tr>
                         </c:forEach>

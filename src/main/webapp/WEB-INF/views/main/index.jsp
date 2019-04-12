@@ -302,18 +302,16 @@
                                         <h2>Conheça a platarfoma</h2>
                                     </div>
                                     <div class="caption-desc" data-animation="animated fadeInUp">
-                                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                                            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
-                                            veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-                                            commodo consequat. Duis aute</p>
+                                        <p>Para Acessar a plataforma realize seu cadastro, simples e rapido, assim que seu cadastro for feito
+                                            realize seu login para assim ter acesso ao painel. </p>
                                     </div>
                                     <div class="caption-button" data-animation="animated fadeInUp">
-                                        <a href="#" class="button">Cadastre-se</a>
+                                        <a href="${path}/login" class="button white">Cadastre-se</a>
                                     </div>
                                 </div>
                                 <div class="col-xs-6 col-md-3">
                                     <div class="caption-photo one" data-animation="animated fadeInRight">
-                                        <img src="images/img-gif/gif-cadastro.gif" alt="gif">
+                                        <img src="${path}/main/images/portfolio-icon-2.png" alt="gif">
                                     </div>
                                 </div>
                                 <div class="col-xs-6 col-md-3">
@@ -327,16 +325,14 @@
                             <div class="v-center">
                                 <div class="col-xs-12 col-md-6">
                                     <div class="caption-title" data-animation="animated fadeInUp">
-                                        <h2>Facil de usar</h2>
+                                        <h2>Gerencie suas atividades</h2>
                                     </div>
                                     <div class="caption-desc" data-animation="animated fadeInUp">
-                                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                                            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
-                                            veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-                                            commodo consequat. Duis aute</p>
+                                        <p>Criamos um painel intuitivo, onde você podera acomponhar todas as suas atividades e registros
+                                        dos serviçõs disponibilizados</p>
                                     </div>
                                     <div class="caption-button" data-animation="animated fadeInUp">
-                                        <a href="#" class="button">Crie sua conta</a>
+                                        <a href="#" class="button white">Crie sua conta</a>
                                     </div>
                                 </div>
                                 <div class="col-xs-6 col-md-3">
@@ -364,7 +360,7 @@
                                             commodo consequat. Duis aute</p>
                                     </div>
                                     <div class="caption-button" data-animation="animated fadeInUp">
-                                        <a href="#" class="button">Acesse o painel</a>
+                                        <a href="#" class="button white">Acesse o painel</a>
                                     </div>
                                 </div>
                                 <div class="col-xs-6 col-md-3">
@@ -379,48 +375,17 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="item row">
-                            <div class="v-center">
-                                <div class="col-xs-12 col-md-6">
-                                    <div class="caption-title" data-animation="animated fadeInUp">
-                                        <h2>Deseja fazer um solicitação?</h2>
-                                    </div>
-                                    <div class="caption-desc" data-animation="animated fadeInUp">
-                                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                                            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
-                                            veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-                                            commodo consequat. Duis aute</p>
-                                    </div>
-                                    <div class="caption-button" data-animation="animated fadeInUp">
-                                        <a href="#" class="button">Com um click</a>
-                                    </div>
-                                </div>
-                                <div class="col-xs-6 col-md-3">
-                                    <div class="caption-photo one" data-animation="animated fadeInRight">
-                                        <img src="images/screen-3.jpg" alt="">
-                                    </div>
-                                </div>
-                                <div class="col-xs-6 col-md-3">
-                                    <div class="caption-photo two" data-animation="animated fadeInRight">
-                                        <img src="images/screen-4.jpg" alt="">
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
                     </div>
                     <!-- Indicators -->
                     <ol class="carousel-indicators caption-indector">
                         <li data-target="#caption_slide" data-slide-to="0" class="active">
-                            <strong>Cadastro </strong>consectetur adipisicing elit.
+                            <strong>Cadastro</strong>Simples e rapido
                         </li>
                         <li data-target="#caption_slide" data-slide-to="1">
-                            <strong>Facil de usar </strong>consectetur adipisicing elit.
+                            <strong>Painel Principal</strong>Todas as informações em um só lugar
                         </li>
                         <li data-target="#caption_slide" data-slide-to="2">
-                            <strong>Painel</strong>consectetur adipisicing elit.
-                        </li>
-                        <li data-target="#caption_slide" data-slide-to="3">
-                            <strong>Peça uma Doação </strong>consectetur adipisicing elit.
+                            <strong>Solicitações</strong>Realize suas solicitações
                         </li>
                     </ol>
                 </div>
@@ -545,7 +510,7 @@
         <div class="row justify-content-end">
             <div class="col-xs-12 col-sm-6 col-sm-offset-3 text-center">
                 <div class="page-title">
-                    <h2>Captar recursos é transformar sonhos em realidade.</h2>
+                    <h2 style="color: #FFFFFF;">Captar recursos é transformar sonhos em realidade.</h2>
                 </div>
             </div>
         </div>
@@ -692,8 +657,6 @@
                     <ul class="social-menu text-right x-left">
                         <li><a href="#"><i class="ti-facebook"></i></a></li>
                         <li><a href="#"><i class="ti-twitter"></i></a></li>
-
-                        <li><a href="#"><i class="ti-linkedin"></i></a></li>
                     </ul>
                 </div>
                 <div class="col-xs-12 col-sm-6">
@@ -706,7 +669,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-xs-12 text-center">
-                    <p>&copy;Copyright 2018 Todos os direitos reservados Yaba Consultoria</p>
+                    <p>&copy;Copyright 2019 Todos os direitos reservados Yaba Consultoria</p>
                 </div>
             </div>
         </div>

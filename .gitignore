@@ -29,3 +29,4 @@
 
 ### Ignorar Documentos ###
 /src/main/webapp/documentos/
+/package-lock.json
