@@ -302,7 +302,8 @@
                                         <h2>Conheça a platarfoma</h2>
                                     </div>
                                     <div class="caption-desc" data-animation="animated fadeInUp">
-                                        <p>Para Acessar a plataforma realize seu cadastro, simples e rapido, assim que seu cadastro for feito
+                                        <p>Para Acessar a plataforma realize seu cadastro, simples e rapido, assim que
+                                            seu cadastro for feito
                                             realize seu login para assim ter acesso ao painel. </p>
                                     </div>
                                     <div class="caption-button" data-animation="animated fadeInUp">
@@ -311,12 +312,12 @@
                                 </div>
                                 <div class="col-xs-6 col-md-3">
                                     <div class="caption-photo one" data-animation="animated fadeInRight">
-                                        <img src="${path}/main/images/portfolio-icon-2.png" alt="gif">
+                                        <img src="${path}/main/images/cases-img/cadastro-1.png" alt="png">
                                     </div>
                                 </div>
                                 <div class="col-xs-6 col-md-3">
                                     <div class="caption-photo two" data-animation="animated fadeInRight">
-                                        <img src="images/img-gif/gif-cadastro.gif" alt="gif">
+                                        <img src="${path}/main/images/cases-img/cadastro-2.png" alt="png">
                                     </div>
                                 </div>
                             </div>
@@ -328,8 +329,9 @@
                                         <h2>Gerencie suas atividades</h2>
                                     </div>
                                     <div class="caption-desc" data-animation="animated fadeInUp">
-                                        <p>Criamos um painel intuitivo, onde você podera acomponhar todas as suas atividades e registros
-                                        dos serviçõs disponibilizados</p>
+                                        <p>Criamos um painel intuitivo, onde você podera acomponhar todas as suas
+                                            atividades e registros
+                                            dos serviçõs disponibilizados</p>
                                     </div>
                                     <div class="caption-button" data-animation="animated fadeInUp">
                                         <a href="#" class="button white">Crie sua conta</a>
@@ -337,12 +339,12 @@
                                 </div>
                                 <div class="col-xs-6 col-md-3">
                                     <div class="caption-photo one" data-animation="animated fadeInRight">
-                                        <img src="images/screen-3.jpg" alt="">
+                                        <img src="${path}/main/images/cases-img/painel-1.png" alt="png">
                                     </div>
                                 </div>
                                 <div class="col-xs-6 col-md-3">
                                     <div class="caption-photo two" data-animation="animated fadeInRight">
-                                        <img src="images/screen-4.jpg" alt="">
+                                        <img src="${path}/main/images/cases-img/painel-2.png" alt="png">
                                     </div>
                                 </div>
                             </div>
@@ -351,13 +353,10 @@
                             <div class="v-center">
                                 <div class="col-xs-12 col-md-6">
                                     <div class="caption-title" data-animation="animated fadeInUp">
-                                        <h2>Gerencia suas atividades</h2>
+                                        <h2>Cadastre seus projetos</h2>
                                     </div>
                                     <div class="caption-desc" data-animation="animated fadeInUp">
-                                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                                            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
-                                            veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-                                            commodo consequat. Duis aute</p>
+                                        <p>Cadastre seus projetos e entidades de maneira simple e facil</p>
                                     </div>
                                     <div class="caption-button" data-animation="animated fadeInUp">
                                         <a href="#" class="button white">Acesse o painel</a>
@@ -365,12 +364,12 @@
                                 </div>
                                 <div class="col-xs-6 col-md-3">
                                     <div class="caption-photo one" data-animation="animated fadeInRight">
-                                        <img src="images/screen-7.jpg" alt="">
+                                        <img src="${path}/main/images/cases-img/painel-1.png" alt="">
                                     </div>
                                 </div>
                                 <div class="col-xs-6 col-md-3">
                                     <div class="caption-photo two" data-animation="animated fadeInRight">
-                                        <img src="images/screen-2.jpg" alt="">
+                                        <img src="${path}/main/images/cases-img/painel-2.png" alt="">
                                     </div>
                                 </div>
                             </div>
