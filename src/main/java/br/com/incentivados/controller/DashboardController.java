@@ -26,10 +26,12 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import br.com.incentivados.enumerated.StatusPedido;
 import br.com.incentivados.enumerated.TipoUsuario;
 import br.com.incentivados.model.Entidade;
+import br.com.incentivados.model.IncentivoFiscal;
 import br.com.incentivados.model.Pedido;
 import br.com.incentivados.model.Projeto;
 import br.com.incentivados.model.Usuario;
 import br.com.incentivados.service.EntidadeService;
+import br.com.incentivados.service.IncentivoFiscalService;
 import br.com.incentivados.service.PedidoService;
 import br.com.incentivados.service.ProjetoService;
 import br.com.incentivados.service.UsuarioService;
@@ -48,6 +50,9 @@ public class DashboardController {
 
 	@Autowired
 	private PedidoService pedidoService;
+
+	@Autowired
+	private IncentivoFiscalService incentivoFiscalService;
 
 	@GetMapping("/login")
 	public String getLogin(@ModelAttribute("redirectAttributesAcesso") String redirectAttributesAcesso,
@@ -186,7 +191,18 @@ public class DashboardController {
 			// Lista as infos e estatísticas dos projetos cadastrados
 			model.addAttribute("projetos", projetoService.findTop3ByOrderByIdDesc());
 			model.addAttribute("qtdProjetos", projetoService.count());
-
+			
+			// Lista todos os incentivos fiscais cadastrados na base de dados
+			List<IncentivoFiscal> incentivosFiscais = incentivoFiscalService.findAll();
+			model.addAttribute("incentivosFiscais", incentivosFiscais);
+			
+			// Lista o número de projetos cadastrados por incentivo fiscal
+			List<Long> datasCharProjeto = new ArrayList<Long>();
+			for (int i = 0; i < incentivosFiscais.size(); i++) {
+				datasCharProjeto.add(projetoService.countByIncentivosFiscais(incentivosFiscais.get(i)));
+			}
+			model.addAttribute("datasCharProjeto", datasCharProjeto);
+			
 			// Lista as infos e estatísticas dos pedidos cadastrados
 			model.addAttribute("qtdPedidos", pedidoService.count());
 			model.addAttribute("qtdPedidosPendente", pedidoService.countByStatus(StatusPedido.PENDENTE));
