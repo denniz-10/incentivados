@@ -25,7 +25,8 @@
 /build/
 
 ### Configuração do Spring boot ###
-application.properties
+### application.properties
 
 ### Ignorar Documentos ###
 /src/main/webapp/documentos/
+/package-lock.json
