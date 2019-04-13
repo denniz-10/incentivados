@@ -1,19 +1,17 @@
 package br.com.incentivados.service;
 
-import java.util.Date;
-import java.util.List;
-import java.util.Optional;
-
-import javax.servlet.http.HttpServletRequest;
-
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
-import org.springframework.web.multipart.MultipartFile;
-
 import br.com.incentivados.model.Empresa;
 import br.com.incentivados.model.Usuario;
 import br.com.incentivados.repository.EmpresaRepository;
 import br.com.incentivados.utility.FileUpload;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
+
+import javax.servlet.http.HttpServletRequest;
+import java.util.Date;
+import java.util.List;
+import java.util.Optional;
 
 @Service
 public class EmpresaService {
