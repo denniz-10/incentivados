@@ -26,9 +26,9 @@
 <body class="">
   <div class="wrapper ">    
     <!-- Sidebar -->
-    <c:import url="/WEB-INF/views/componentes/sidebar/sidebar-entidade.jsp" />    
+    <c:import url="/WEB-INF/views/componentes/sidebar/sidebar-analista.jsp" />    
     <div class="main-panel">
-      <c:import url="/WEB-INF/views/componentes/navbar/navbar-entidade.jsp" />      
+      <c:import url="/WEB-INF/views/componentes/navbar/navbar-analista.jsp" />      
       <div class="content"> 
         <div class="row">
           <div class="col-md-12">
@@ -122,7 +122,7 @@
                     </div>
                     <div class="col-lg-2 text-center mt-5">
                       <div class="form-group">
-                          <a href="${path}/${pedido.entidade.documentosEntidade.cartaoCnpj.path}" target="_blank"><i class="far fa-file-image text-primary" style="font-size: 56px;"></i></a>
+                          <a href="${path}/${pedido.entidade.documentosEntidade.cartaoCnpj.path}" target="_blank"><i class="far fa-file-alt text-primary" style="font-size: 56px;"></i></a>
                           <hr>
                           <h5 class="text-center">Cartão CNPJ</h5>
                       </div>
@@ -140,33 +140,7 @@
           </div>
         </div>              
       </div>
-      <footer class="footer footer-black  footer-white ">
-        <div class="container-fluid">
-          <div class="row">
-            <nav class="footer-nav">
-              <ul>
-                <li>
-                  <a href="https://www.creative-tim.com" target="_blank">Creative Tim</a>
-                </li>
-                <li>
-                  <a href="http://blog.creative-tim.com/" target="_blank">Blog</a>
-                </li>
-                <li>
-                  <a href="https://www.creative-tim.com/license" target="_blank">Licenses</a>
-                </li>
-              </ul>
-            </nav>
-            <div class="credits ml-auto">
-              <span class="copyright">
-                ©
-                <script>
-                  document.write(new Date().getFullYear())
-                </script>, made with <i class="fa fa-heart heart"></i> by Creative Tim
-              </span>
-            </div>
-          </div>
-        </div>
-      </footer>
+      <c:import url="/WEB-INF/views/componentes/footer/painel/footer.jsp" />
     </div>
   </div>
 
