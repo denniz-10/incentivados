@@ -1,12 +1,16 @@
 package br.com.incentivados.repository;
 
-import br.com.incentivados.model.Entidade;
-import br.com.incentivados.model.Usuario;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.GregorianCalendar;
+import java.util.List;
+import java.util.Optional;
+
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import java.util.List;
-import java.util.Optional;
+import br.com.incentivados.model.Entidade;
+import br.com.incentivados.model.Usuario;
 
 @Repository
 public interface EntidadeRepository extends JpaRepository<Entidade, Long>{
@@ -16,6 +20,8 @@ public interface EntidadeRepository extends JpaRepository<Entidade, Long>{
 	
 	Long countByUsuario(Usuario usuario);
 	
+	Long countByDataCadastroBetween(Date inicio, Date fim);
+
 	Optional<Entidade> findById(Long id);
 	
 	List<Entidade> findTop3ByOrderByIdDesc();
